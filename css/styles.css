@@ -197,7 +197,7 @@ article.image-grid {
 article.image-grid-span {
     --gap: 0.125rem;
     --num-cols: 4;
-    --row-heights: calc((100vw / var(--num-cols)) * 9 /16);
+    --row-heights: calc((100vw / var(--num-cols)) * 9 / 16);
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
@@ -232,7 +232,7 @@ article.image-grid-span {
 }
 
 
-/* Update media queries to handle both image-grid and image-grid-span */
+/* Update media queries for different screen size*/
 @media screen and (max-width: 64rem) {
 
     /* 1024px */
@@ -253,7 +253,11 @@ article.image-grid-span {
     }
 
     article.image-grid-span {
-        --num-cols: 1;
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 80%;
     }
 }
 
@@ -265,7 +269,11 @@ article.image-grid-span {
     }
 
     article.image-grid-span {
-        --num-cols: 1;
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 90%;
     }
 }
 
@@ -277,7 +285,16 @@ article.image-grid-span {
     }
 
     article.image-grid-span {
-        --num-cols: 1;
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 95%;
+    }
+
+    .slider button {
+        font-size: 1.5rem;
+        padding: 0.2rem 0.4rem;
     }
 }
 
@@ -339,35 +356,6 @@ img.displaySlide {
     }
     to {
         opacity: 1;
-    }
-}
-
-@media screen and (max-width: 48rem) {
-
-    /* 768px */
-    .slider {
-        max-width: 80%;
-    }
-}
-
-@media screen and (max-width: 37.5rem) {
-
-    /* 600px */
-    .slider {
-        max-width: 90%;
-    }
-}
-
-@media screen and (max-width: 25.75rem) {
-
-    /* 412px */
-    .slider {
-        max-width: 95%;
-    }
-
-    .slider button {
-        font-size: 1.5rem;
-        padding: 0.2rem 0.4rem;
     }
 }
 
@@ -438,7 +426,8 @@ li.footer-section,
 }
 
 h1.footer-section {
-    line-height: 3rem;
+   
+ line-height: 3rem;
     font-size: 3rem;
     font-weight: 800;
     padding-bottom: 1rem;
@@ -475,5 +464,179 @@ img.footer-img {
 
 .social-button:hover .footer-img {
     filter: invert(1);
+}
+
+
+/* Update media queries for different screen size*/
+@media screen and (max-width: 64rem) {
+
+    /* 1024px */
+    :root {
+        font-size: 22px;
+    }
+    
+    h1.body-section, h1.footer-section {
+        font-size: 2.5rem;
+        line-height: 2.7rem;
+    }
+    
+    h2.body-section {
+        font-size: 1.8rem;
+    }
+
+    article.image-grid {
+        --num-cols: 3;
+    }
+
+    article.image-grid-span {
+        --num-cols: 3;
+    }
+
+    
+}
+
+@media screen and (max-width: 48rem) {
+
+    /* 768px */
+
+    :root {
+        font-size: 20px;
+    }
+    
+    h1.body-section, h1.footer-section {
+        font-size: 2.2rem;
+        line-height: 2.4rem;
+        padding-bottom: 0.8rem;
+    }
+    
+    h2.body-section {
+        font-size: 1.6rem;
+    }
+    
+    h3.body-section {
+        font-size: 1.1rem;
+    }
+    
+    a.social-button {
+        width: 6rem;
+        padding: 1.5rem 1.5rem 1.5rem;
+    }
+    
+    footer.footer-content {
+        padding: 8rem 0;
+    }
+
+    article.image-grid {
+        --num-cols: 2;
+    }
+
+    article.image-grid-span {
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 37.5rem) {
+
+    /* 600px */
+
+    :root {
+        font-size: 18px;
+    }
+    
+    h1.body-section, h1.footer-section {
+        font-size: 2rem;
+        line-height: 2.2rem;
+    }
+    
+    h2.body-section {
+        font-size: 1.4rem;
+    }
+    
+    section.body-section, section.footer-section {
+        padding: 0 1rem;
+    }
+    
+    a.social-button {
+        width: 5rem;
+        padding: 1.2rem 1.2rem 1.2rem;
+    }
+    
+    div.social-button--label {
+        font-size: 0.7rem;
+        margin-top: 1.2rem;
+    }
+    
+    footer.footer-content {
+        padding: 6rem 0;
+    }
+
+    article.image-grid {
+        --num-cols: 2;
+    }
+
+    article.image-grid-span {
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 25.75rem) {
+
+    /* 412px */
+
+    :root {
+       font-size: 16px;
+    }
+    
+    h1.body-section, h1.footer-section {
+        font-size: 1.8rem;
+        line-height: 2rem;
+        padding-bottom: 0.6rem;
+    }
+    
+    h2.body-section {
+        font-size: 1.3rem;
+    }
+    
+    h3.body-section {
+        font-size: 1rem;
+    }
+    
+    p.body-section, p.footer-section {
+        font-size: 0.9rem;
+    }
+    
+    a.social-button {
+        width: 5rem;
+        padding: 1rem 1rem 1rem;
+    }
+    
+    footer.footer-content {
+        padding: 4rem 0;
+    }
+
+    article.image-grid {
+        --num-cols: 2;
+    }
+
+    article.image-grid-span {
+        --num-cols: 2;
+    }
+
+    .slider {
+        max-width: 95%;
+    }
+
+    .slider button {
+        font-size: 1.5rem;
+        padding: 0.2rem 0.4rem;
+    }
 }
 
