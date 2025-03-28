@@ -16,6 +16,7 @@
 :root {
     font-family: LibreCaslonCondensed, sans-serif;
     font-size: 24px;
+    scroll-behavior: smooth;
 }
 
 ::-moz-selection {
@@ -48,6 +49,31 @@ header.header-link {
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
+}
+
+nav.sticky-nav {
+    position: fixed;
+    top: 0rem;
+    left: 2rem;
+    z-index: 1000;
+    background: #00000061;
+    border-radius:  0 0 0.4rem 0.4rem;
+    padding: 0.5rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+a.nav-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    padding: 0 0.5rem;
+}
+
+a.nav-link:hover {
+    color: #fff;
 }
 
 a.social-button {
@@ -231,78 +257,6 @@ article.image-grid-span {
     grid-row: span 2;
 }
 
-
-/* Update media queries for different screen size*/
-@media screen and (max-width: 64rem) {
-
-    /* 1024px */
-    article.image-grid {
-        --num-cols: 3;
-    }
-
-    article.image-grid-span {
-        --num-cols: 3;
-    }
-}
-
-@media screen and (max-width: 48rem) {
-
-    /* 768px */
-    article.image-grid {
-        --num-cols: 2;
-    }
-
-    article.image-grid-span {
-        --num-cols: 2;
-    }
-
-    .slider {
-        max-width: 80%;
-    }
-}
-
-@media screen and (max-width: 37.5rem) {
-
-    /* 600px */
-    article.image-grid {
-        --num-cols: 2;
-    }
-
-    article.image-grid-span {
-        --num-cols: 2;
-    }
-
-    .slider {
-        max-width: 90%;
-    }
-}
-
-@media screen and (max-width: 25.75rem) {
-
-    /* 412px */
-    article.image-grid {
-        --num-cols: 2;
-    }
-
-    article.image-grid-span {
-        --num-cols: 2;
-    }
-
-    .slider {
-        max-width: 95%;
-    }
-
-    .slider button {
-        font-size: 1.5rem;
-        padding: 0.2rem 0.4rem;
-    }
-}
-
-img.body-section--poster {
-    width: 70%;
-    height: auto;
-}
-
 .slider {
     position: relative;
     max-width: 600px;
@@ -379,6 +333,9 @@ img.displaySlide {
 .footer-container {
     position: relative;
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-background {
@@ -400,6 +357,8 @@ footer.footer-content {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     width: 100%;
     z-index: 1;
     padding: 10rem 0;
@@ -410,6 +369,8 @@ section.footer-section {
     align-items: center;
     text-align: left;
     padding: 1rem;
+    width: 80%;
+    margin: 0 auto;
 }
 
 h1.footer-section,
@@ -457,15 +418,14 @@ footer.footer-link {
 img.footer-img {
         position: relative;
         z-index: 2;
-        height: 100%;
-        width: 100%;
-        margin-right: 10px;
+        height: 4rem;
+        width: 4rem;
+        text-align: center;
 }
 
 .social-button:hover .footer-img {
     filter: invert(1);
 }
-
 
 /* Update media queries for different screen size*/
 @media screen and (max-width: 64rem) {
@@ -473,6 +433,11 @@ img.footer-img {
     /* 1024px */
     :root {
         font-size: 22px;
+    }
+
+    a.nav-link {
+        font-size: 0.9rem;
+        padding: 0 0.4rem;
     }
     
     h1.body-section, h1.footer-section {
@@ -501,6 +466,16 @@ img.footer-img {
 
     :root {
         font-size: 20px;
+    }
+
+    a.nav-link {
+        font-size: 0.85rem;
+        padding: 0 0.35rem;
+    }
+
+    nav.sticky-nav {
+        left: 1.5rem;
+        padding: 0.4rem;
     }
     
     h1.body-section, h1.footer-section {
@@ -537,6 +512,11 @@ img.footer-img {
     .slider {
         max-width: 80%;
     }
+
+    img.footer-img {
+        height: 2rem;
+        width: 2rem;
+    }
 }
 
 @media screen and (max-width: 37.5rem) {
@@ -545,6 +525,16 @@ img.footer-img {
 
     :root {
         font-size: 18px;
+    }
+
+    a.nav-link {
+        font-size: 0.8rem;
+        padding: 0 0.3rem;
+    }
+
+    nav.sticky-nav {
+        left: 1rem;
+        padding: 0.35rem;
     }
     
     h1.body-section, h1.footer-section {
@@ -585,6 +575,15 @@ img.footer-img {
     .slider {
         max-width: 90%;
     }
+
+    .slider img {
+        border-width: 0.5px;
+    }
+
+    img.footer-img {
+        height: 1.8rem;
+        width: 1.8rem;
+    }
 }
 
 @media screen and (max-width: 25.75rem) {
@@ -593,6 +592,16 @@ img.footer-img {
 
     :root {
        font-size: 16px;
+    }
+
+    a.nav-link {
+        font-size: 0.75rem;
+        padding: 0 0.25rem;
+    }
+
+    nav.sticky-nav {
+        left: 0.75rem;
+        padding: 0.3rem;
     }
     
     h1.body-section, h1.footer-section {
@@ -637,6 +646,11 @@ img.footer-img {
     .slider button {
         font-size: 1.5rem;
         padding: 0.2rem 0.4rem;
+    }
+
+    img.footer-img {
+        height: 1.6rem;
+        width: 1.6rem;
     }
 }
 

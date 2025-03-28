@@ -1,6 +1,6 @@
 /*!
  * zoom.js
- * http://lab.hakim.se/zoom-js
+ * https://github.com/hakimel/zoom.js
  * MIT licensed
  *
  * Copyright (C) 2011-2014 Hakim El Hattab

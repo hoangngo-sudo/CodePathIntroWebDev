@@ -1,3 +1,15 @@
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  });
+});
+
+// ----------------------------------------------------//
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     if (event.target.tagName === "IMG" && event.target.closest(".image-grid")) {
@@ -11,7 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
-    if (event.target.tagName === "IMG" && event.target.closest(".image-grid-span")) {
+    if (
+      event.target.tagName === "IMG" &&
+      event.target.closest(".image-grid-span")
+    ) {
       event.preventDefault();
       // Small delay to prevent jank during rapid interactions
       requestAnimationFrame(function () {
