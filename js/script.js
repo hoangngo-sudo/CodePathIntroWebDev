@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Use event delegation instead of attaching to every image
   document.addEventListener("click", function (event) {
     if (event.target.tagName === "IMG" && event.target.closest(".image-grid")) {
+      event.preventDefault();
+      // Small delay to prevent jank during rapid interactions
+      requestAnimationFrame(function () {
+        zoom.to({ element: event.target });
+      });
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    if (event.target.tagName === "IMG" && event.target.closest(".image-grid-span")) {
       event.preventDefault();
       // Small delay to prevent jank during rapid interactions
       requestAnimationFrame(function () {
