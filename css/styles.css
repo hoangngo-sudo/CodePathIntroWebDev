@@ -183,7 +183,7 @@ section.body-section {
 article.image-grid {
     --gap: 0.125rem;
     --num-cols: 4;
-    --row-heights: 12.5rem;
+    --row-heights: calc((100vw / var(--num-cols)) * 4 / 5);
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
@@ -232,98 +232,52 @@ article.image-grid-span {
 }
 
 
-/* Small landscape */ 
+/* Update media queries to handle both image-grid and image-grid-span */
 @media screen and (max-width: 64rem) {
 
     /* 1024px */
-    :root {
-        font-size: 22px;
-    }
-
-    .image-grid {
+    article.image-grid {
         --num-cols: 3;
-        --row-heights: 14rem;
     }
 
-    section.body-section--text {
-        max-width: 60%;
+    article.image-grid-span {
+        --num-cols: 3;
     }
 }
 
-/* Tablets */
 @media screen and (max-width: 48rem) {
 
     /* 768px */
-    :root {
-        font-size: 20px;
-    }
-
-    h1.body-content {
-        font-size: 1.75rem;
-    }
-
-    .image-grid {
+    article.image-grid {
         --num-cols: 2;
-        --row-heights: 12rem;
     }
 
-    a.social-button {
-        width: 7rem;
-        padding: 1.5rem;
+    article.image-grid-span {
+        --num-cols: 1;
     }
 }
 
-/* Large tablets */
 @media screen and (max-width: 37.5rem) {
 
     /* 600px */
-    :root {
-        font-size: 18px;
+    article.image-grid {
+        --num-cols: 2;
     }
 
-    section.body-section--text {
-        max-width: 90%;
-    }
-
-    div.social-button--label {
-        font-size: 0.75rem;
+    article.image-grid-span {
+        --num-cols: 1;
     }
 }
 
-/* Small phones */
 @media screen and (max-width: 25.75rem) {
 
     /* 412px */
-    :root {
-        font-size: 16px;
-    }
-
-    .image-grid {
+    article.image-grid {
         --num-cols: 2;
-        --row-heights: 10rem;
     }
 
-    a.social-button {
-        width: 6rem;
-        padding: 1rem;
-    }
-}
-
-/* Small small phones */
-@media screen and (max-width: 22.5rem) {
-
-    /* 360px */
-    :root {
-        font-size: 14px;
-    }
-
-    .image-grid {
-        --row-heights: 8rem;
-    }
-
-    div.social-button--label {
-        margin-top: 0.75rem;
-        font-size: 0.65rem;
+    article.image-grid-span {
+        --num-cols: 1;
     }
 }
 
@@ -340,9 +294,16 @@ img.body-section--poster {
     overflow: hidden;
 }
 
+.slides {
+    width: 100%;
+    aspect-ratio: 2/3;
+    position: relative;
+}
+
 .slider img {
     width: 100%;
     display: none;
+    object-fit: contain;
     border: black solid 1px;
     box-sizing: border-box;
 }
@@ -378,6 +339,35 @@ img.displaySlide {
     }
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 48rem) {
+
+    /* 768px */
+    .slider {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 37.5rem) {
+
+    /* 600px */
+    .slider {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 25.75rem) {
+
+    /* 412px */
+    .slider {
+        max-width: 95%;
+    }
+
+    .slider button {
+        font-size: 1.5rem;
+        padding: 0.2rem 0.4rem;
     }
 }
 
