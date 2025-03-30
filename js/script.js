@@ -1,3 +1,40 @@
+/*** Dark Mode ***/
+
+// Select the theme button
+let themeBtn = document.querySelector("#theme-btn");
+let darkmode = localStorage.getItem("darkmode");
+
+// Create a callback function
+const toggleThemeMode = () => {
+    darkmode = localStorage.getItem("darkmode"); // Get the current darkmode status
+    // Check if darkmode is active or not
+    if (darkmode !== "active") {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+};
+
+const enableDarkMode = () => {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("darkmode", "active");
+};
+
+const disableDarkMode = () => {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("darkmode", "null");
+};
+
+if (darkmode === "active") {
+    enableDarkMode(); // If darkmode is active, enable it
+}
+
+// Register a 'click' event listener for the theme button,
+// and tell it to use toggleThemeMode as its callback function
+themeBtn.addEventListener("click", toggleThemeMode);
+
+//----------------------------------------------------//
+/*** Smooth scrolling ***/
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();

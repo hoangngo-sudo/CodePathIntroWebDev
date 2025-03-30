@@ -17,18 +17,86 @@
     font-family: LibreCaslonCondensed, sans-serif;
     font-size: 24px;
     scroll-behavior: smooth;
+
+    --primary-color: #E91E63;
+    --primary-dark-color: #ff80ab; 
+    --secondary-color: #000; 
+    --tertiary-color: #fff; 
+    --background-color: #fff;
+    --svg-color: #000;
+
+    --nav-bg: #00000061;
+    --hightlight: #E91E63;
+    --btn-hover: #E91E63;
+    --selection-bg: #E91E63;
+    --selection-text: #000;
 }
 
+/* Default dark mode style */
+.dark-mode {
+    --primary-color: #ff4081;
+    --primary-dark-color: #ff4081;
+    --secondary-color: #fff;
+    --tertiary-color: #1c1c1c;
+    --background-color: #1c1c1c;
+    --svg-color: #58585866;
+
+    --nav-bg: #ffffff61;
+    --highlight: #ff4081;
+    --btn-hover: #ff4081;
+    --selection-bg: #ff4081;
+    --selection-text: #000;
+
+    background-color: var(--background-color);
+}
+
+#theme-btn {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 0 0 0.4rem 0.4rem;
+    transition: color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -4rem;
+}
+
+#theme-btn svg {
+    transition: fill 0.3s ease;
+    fill: var(--secondary-color);
+}
+
+#theme-btn svg:hover {
+    fill: var(--tertiary-color);
+}
+
+#theme-btn svg:last-child {
+    display: none;
+}
+
+.dark-mode #theme-btn svg:first-child {
+    display: none;
+}
+
+.dark-mode #theme-btn svg:last-child {
+    display: block;
+}
 ::-moz-selection {
     /* Code for Firefox */
-    color: #fff;
-    background: #E91E63;
+    color: var(--selection-text);
+    background: var(--selection-bg);
 }
 
 /* Change selection all text color */
 ::selection {
-    color: #fff;
-    background: #E91E63;
+    color: var(--selection-text);
+    background: var(--selection-bg);
 }
 
 /* Hide webkit-based browser scrollbar */
@@ -56,7 +124,7 @@ nav.sticky-nav {
     top: 0rem;
     left: 2rem;
     z-index: 1000;
-    background: #00000061;
+    background-color: var(--nav-bg);
     border-radius:  0 0 0.4rem 0.4rem;
     padding: 0.5rem;
     backdrop-filter: blur(5px);
@@ -64,7 +132,7 @@ nav.sticky-nav {
 }
 
 a.nav-link {
-    color: #000;
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
@@ -73,7 +141,7 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-    color: #fff;
+    color: var(--tertiary-color);
 }
 
 a.social-button {
@@ -99,6 +167,7 @@ a.social-button:hover .social-button--background {
 
 a.social-button:hover .social-button--label {
     opacity: 1;
+    color: var(--secondary-color);
 }
 
 img.header-img {
@@ -115,7 +184,7 @@ img.header-img {
 }
 
 div.social-button--background {
-    background-color: #E91E63;
+    background-color: var(--primary-color);
     position: absolute;
     z-index: 1;
     cursor: pointer;
@@ -129,7 +198,7 @@ div.social-button--background {
 }
 
 div.social-button--label {
-    color: rgb(255, 255, 255);
+    color: var(--tertiary-color);
     text-align: center;
     position: relative;
     z-index: 2;
@@ -141,12 +210,34 @@ div.social-button--label {
     font-size: 0.8rem;
 }
 
+.body-section {
+    position: relative;
+    z-index: 2;
+}
+
+.bg-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 0;
+}
+
+.bg-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
 h1.body-section, 
 h2.body-section, 
 h3.body-section, 
 a.body-section, 
 p.body-section {
-    color: rgb(34, 34, 34);
+    color: var(--secondary-color);
     text-align: left;
     line-height: 1.5rem;
     box-sizing: content-box;
@@ -154,15 +245,15 @@ p.body-section {
 }
 
 a.button {
-    color: #E91E63;
+    color: var(--primary-color);
     text-decoration: none;
-    border: #000 solid 1px;
+    border: var(--secondary-color) solid 1px;
 }
 
 a.button:hover {
-    color: #fff;
-    background-color: #E91E63;
-    border: #E91E63 solid 1px;
+    color: var(--tertiary-color);
+    background-color: var(--btn-hover);
+    border: var(--btn-hover) solid 1px;
 }
 
 h1.body-section {
@@ -189,7 +280,7 @@ p.body-section {
 }
 
 span.highlight-pink {
-    color: #E91E63;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -203,7 +294,7 @@ article.body-content {
 
 section.body-section {
     max-width: 800px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 article.image-grid {
@@ -275,7 +366,7 @@ article.image-grid-span {
     width: 100%;
     display: none;
     object-fit: contain;
-    border: black solid 1px;
+    border: var(--secondary-color) solid 1px;
     box-sizing: border-box;
 }
 
@@ -290,7 +381,7 @@ img.displaySlide {
     transform: translateY(-50%);
     font-size: 2rem;
     padding: 0.25rem 0.5rem;
-    background-color: #E91E63;
+    background-color: var(--hightlight);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -364,6 +455,10 @@ footer.footer-content {
     padding: 10rem 0;
 }
 
+.footer-section {
+    flex: 1;
+}
+
 section.footer-section {
     max-width: 800px;
     align-items: center;
@@ -400,7 +495,7 @@ p.footer-section {
 }
 
 .footer-section a {
-    color: #ff80ab;
+    color: var(--primary-dark-color);
     text-decoration: none;
 }
 
@@ -423,6 +518,13 @@ img.footer-img {
         text-align: center;
 }
 
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 2rem 0;
+}
+
 .social-button:hover .footer-img {
     filter: invert(1);
 }
@@ -433,6 +535,12 @@ img.footer-img {
     /* 1024px */
     :root {
         font-size: 22px;
+    }
+
+    #theme-btn {
+        height: 45px;
+        width: 45px;
+        right: -3.8rem;
     }
 
     a.nav-link {
@@ -466,6 +574,12 @@ img.footer-img {
 
     :root {
         font-size: 20px;
+    }
+
+    #theme-btn {
+        height: 40px;
+        width: 40px;
+        right: -3.5rem;
     }
 
     a.nav-link {
@@ -525,6 +639,17 @@ img.footer-img {
 
     :root {
         font-size: 18px;
+    }
+
+    #theme-btn {
+        height: 35px;
+        width: 35px;
+        right: -3.2rem;
+    }
+
+    #theme-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
     a.nav-link {
@@ -594,6 +719,17 @@ img.footer-img {
        font-size: 16px;
     }
 
+    #theme-btn {
+        height: 30px;
+        width: 30px;
+        right: -2.8rem;
+    }
+
+    #theme-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
     a.nav-link {
         font-size: 0.75rem;
         padding: 0 0.25rem;
@@ -628,7 +764,8 @@ img.footer-img {
     }
     
     footer.footer-content {
-        padding: 4rem 0;
+        flex-direction: column;
+        padding: 10rem 0;
     }
 
     article.image-grid {

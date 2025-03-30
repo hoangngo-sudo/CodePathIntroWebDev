@@ -11,11 +11,24 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body class="dark-mode">
     <nav class="sticky-nav">
         <a href="#home" class="nav-link">Home</a>
         <a href="#program" class="nav-link">Program</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <button id="theme-btn">
+            <!-- dark-icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                    d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z" />
+            </svg>
+
+            <!-- light-icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+                <path
+                    d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z" />
+            </svg>
+        </button>
     </nav>
     <header class="header-link fade-in">
         <a href="https://www.instagram.com/drincatuic/" target="_blank" class="social-button">
@@ -23,8 +36,11 @@
             <div class="social-button--background"></div>
             <div class="social-button--label">@drincatuic</div>
         </a>
-
     </header>
+
+    <div class="bg-container">
+        <img class="bg-image" src="./images/multiple_color.svg" alt="multiple_color">
+    </div>
 
     <article id="home" class="body-content fade-in">
         <section class="body-section fade-in">
@@ -43,7 +59,7 @@
     </article>
 
     <div class="fade-in">
-        <p class="fade-in" style="line-height: 2rem; text-align: left; font-size: 1rem; font-weight: 400; box-sizing: content-box;">5:4 ratio - click on each image to zoom in</p>
+        <p class="fade-in" style="color: var(--secondary-color); line-height: 2rem; text-align: left; font-size: 1rem; font-weight: 400; box-sizing: content-box;">5:4 ratio - click on each image to zoom in</p>
         <article class="image-grid fade-in">
             <img src="./images/DJI1.webp" alt="pic of group" loading="eager" decoding="async">
             <img src="./images/DJI2.webp" alt="pic of group" loading="eager" decoding="async">
@@ -61,31 +77,31 @@
         </article>
     </div>
     <div class="fade-in">
-        <p class="fade-in" style="line-height: 2rem; text-align: left; font-size: 1rem; font-weight: 400; box-sizing: content-box;">16:9 ratio - click on each image to zoom in</p>
+        <p class="fade-in" style=" color: var(--secondary-color); line-height: 2rem; text-align: left; font-size: 1rem; font-weight: 400; box-sizing: content-box;">16:9 ratio - click on each image to zoom in</p>
         <article class="image-grid-span fade-in">
             <img src="./images/IMG_3984.webp" alt="pic of group" loading="lazy" decoding="async">
             <img src="./images/IMG_3988.webp" alt="pic of group" loading="lazy" decoding="async">
             <img src="./images/IMG_3991.webp" alt="pic of group" loading="lazy" decoding="async">
             <img src="./images/IMG_3945.webp" alt="pic of group" loading="lazy" decoding="async">
-            <img src="./images/DJI4.webp" alt="pic of group" loading="lazy" decoding="async">
-            <img src="./images/DJI3.webp" alt="pic of group" loading="lazy" decoding="async">
             <div class="image-grid-col-2 image-grid-row-2"
-                style="padding:10px;position:relative;width:100%;height:100%;aspect-ratio:16/9;background-color:#E91E63">
+                style="position:relative;">
                 <iframe
                     src="https://player.vimeo.com/video/1069801061?h=56307c5675&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                    style="position:absolute;top:0;left:0;width:calc(100% - 20px);height:calc(100% - 20px);margin:10px;"
+                    frameborder="0" allow= "autoplay; fullscreen; clipboard-write; encrypted-media"
+                    style="position:absolute; top:0; left:0; width:100%; height:100%;"
                     title="Bonfire">
                 </iframe>
                 <script src="https://player.vimeo.com/api/player.js"></script>
             </div>
+            <img src="./images/DJI4.webp" alt="pic of group" loading="lazy" decoding="async">
+            <img src="./images/DJI3.webp" alt="pic of group" loading="lazy" decoding="async">
         </article>
     </div>
 
 
     <article id="program" class="body-content fade-in">
         <section class="body-section">
-            <h1 class="body-section">Our program</h1>
+            <h1 class="body-section">Our three days program</h1>
             <p class="body-section">We will have three days of worship, prayer, and fellowship at our UBF coworker house
                 in Michigan.</p>
             <div class="slider fade-in">
@@ -109,7 +125,7 @@
         <div class="footer-background">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"
                 preserveAspectRatio="none">
-                <polygon points="0,15 100,0 100,100 0,100" style="background-color: #000"></polygon>
+                <polygon points="0,15 100,0 100,100 0,100" style="fill: var(--svg-color)"></polygon>
             </svg>
         </div>
         <footer class="footer-content footer-link fade-in">
@@ -124,17 +140,19 @@
                     <li>Address: 1015 W Polk st, Chicago, IL 60607</li>
                 </ul>
             </section>
-
-            <a href="https://www.instagram.com/drincatuic/" target="_blank" class="social-button">
-                <img class="footer-img" src="./images/instagram-white.svg" alt="Instagram Logo">
-                <div class="social-button--background" style="background: #ae478a; background: linear-gradient(90deg, #ae478a 0%, #ed5e87 100%);"></div>
-                <div class="social-button--label">@drincatuic</div>
-            </a>
-            <a href="https://linktr.ee/drincatuic" target="_blank" class="social-button">
-                <img class="footer-img" src="./images/linktree-white.svg" alt="Linktree Logo">
-                <div class="social-button--background" style="background-color: #43e660;"></div>
-                <div class="social-button--label">Linktree</div>
-            </a>
+            
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/drincatuic/" target="_blank" class="social-button">
+                    <img class="footer-img" src="./images/instagram-white.svg" alt="Instagram Logo">
+                    <div class="social-button--background" style="background: #ae478a; background: linear-gradient(90deg, #ae478a 0%, #ed5e87 100%);"></div>
+                    <div class="social-button--label">@drincatuic</div>
+                </a>
+                <a href="https://linktr.ee/drincatuic" target="_blank" class="social-button">
+                    <img class="footer-img" src="./images/linktree-white.svg" alt="Linktree Logo">
+                    <div class="social-button--background" style="background-color: #43e660;"></div>
+                    <div class="social-button--label">Linktree</div>
+                </a>
+            </div>
         </footer>
     </div>
 
