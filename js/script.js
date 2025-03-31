@@ -294,4 +294,6 @@ document.addEventListener("DOMContentLoaded", function () {
       lazyImageObserver.observe(img);
     }
   });
+    
+    enhancedImagePreloading();
 });
