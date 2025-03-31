@@ -1,4 +1,7 @@
-/* Variable Font (Recommended) */
+/* ============================
+   FONTS
+============================ */
+
 @font-face {
     font-family: 'LibreCaslonCondensed';
     src: url(../fonts/LibreCaslonCondensed[wght].woff2) format('woff2-variations');
@@ -13,33 +16,38 @@
     font-style: italic;
 }
 
+/* ============================
+   ROOT SETTINGS
+============================ */
+
 :root {
     font-family: LibreCaslonCondensed, sans-serif;
     font-size: 24px;
     scroll-behavior: smooth;
 
+    /* Color palette */
     --primary-color: #E91E63;
-    --primary-dark-color: #ff80ab; 
-    --secondary-color: #000; 
-    --tertiary-color: #fff; 
+    --primary-dark-color: #ff80ab;
+    --secondary-color: #000;
+    --tertiary-color: #fff;
     --background-color: #fff;
     --svg-color: #000;
 
     --nav-bg: #00000061;
-    --hightlight: #E91E63;
+    --highlight: #E91E63;
     --btn-hover: #E91E63;
     --selection-bg: #E91E63;
     --selection-text: #000;
 }
 
-/* Default dark mode style */
+/* Dark mode color theme */
 .dark-mode {
     --primary-color: #ff4081;
     --primary-dark-color: #ff4081;
     --secondary-color: #fff;
     --tertiary-color: #1c1c1c;
     --background-color: #1c1c1c;
-    --svg-color: #58585866;
+    --svg-color: #667096;
 
     --nav-bg: #ffffff61;
     --highlight: #ff4081;
@@ -49,6 +57,38 @@
 
     background-color: var(--background-color);
 }
+
+/* ============================
+   BASE STYLES
+============================ */
+
+/* Text selection colors */
+/* Code for Firefox */
+::-moz-selection {
+    color: var(--selection-text);
+    background: var(--selection-bg);
+}
+
+::selection {
+    color: var(--selection-text);
+    background: var(--selection-bg);
+}
+
+/* Hide scrollbars */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+/* ============================
+   THEME BUTTON
+============================ */
 
 #theme-btn {
     height: 50px;
@@ -65,6 +105,7 @@
     position: fixed;
     top: 0;
     right: -4rem;
+    z-index: 1000;
 }
 
 #theme-btn svg {
@@ -87,29 +128,98 @@
 .dark-mode #theme-btn svg:last-child {
     display: block;
 }
-::-moz-selection {
-    /* Code for Firefox */
-    color: var(--selection-text);
-    background: var(--selection-bg);
+
+/* ============================
+   TYPOGRAPHY
+============================ */
+
+h1.body-section,
+h2.body-section,
+h3.body-section,
+p.body-section,
+a.body-section {
+    color: var(--secondary-color);
+    text-align: left;
+    line-height: 1.5rem;
+    box-sizing: content-box;
+    margin-bottom: 1rem;
 }
 
-/* Change selection all text color */
-::selection {
-    color: var(--selection-text);
-    background: var(--selection-bg);
+h1.body-section {
+    line-height: 3rem;
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 1rem;
 }
 
-/* Hide webkit-based browser scrollbar */
-* {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+h2.body-section {
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-*::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
+h3.body-section {
+    font-size: 1.25rem;
+    font-weight: 600;
 }
+
+p.body-section {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+span.highlight-pink {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ============================
+   6. Layout Components
+============================ */
+
+/* Background container */
+.bg-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 0;
+}
+
+.bg-image {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    margin-right: 75%; /* Pushes the image to overflow on the left side */
+    max-width: none;
+}
+
+/* Content sections */
+.body-section {
+    position: relative;
+    z-index: 2;
+}
+
+article.body-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5rem;
+}
+
+section.body-section {
+    max-width: 800px;
+    align-items: flex-start;
+}
+
+/* ============================
+   NAV
+============================ */
 
 header.header-link {
     position: relative;
@@ -126,7 +236,7 @@ nav.sticky-nav {
     left: 2rem;
     z-index: 1000;
     background-color: var(--nav-bg);
-    border-radius:  0 0 0.4rem 0.4rem;
+    border-radius: 0 0 0.4rem 0.4rem;
     padding: 0.5rem;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -143,6 +253,44 @@ a.nav-link {
 
 a.nav-link:hover {
     color: var(--tertiary-color);
+}
+
+/* ============================
+   HEADER
+============================ */
+
+img.header-img {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    cursor: pointer;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 0.5rem var(--svg-color));
+}
+
+/* ============================
+   HEADER BUTTON and RSVP BUTTON LINK
+============================ */
+
+a.button {
+    color: var(--primary-color);
+    text-decoration: none;
+    border: var(--secondary-color) solid 1px;
+    padding: 0.1rem;
+    margin: 1rem 0;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+a.button:hover {
+    color: var(--secondary-color);
+    background-color: var(--btn-hover);
+    border: var(--btn-hover) solid 1px;
 }
 
 a.social-button {
@@ -169,19 +317,6 @@ a.social-button:hover .social-button--background {
 a.social-button:hover .social-button--label {
     opacity: 1;
     color: var(--secondary-color);
-}
-
-img.header-img {
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    cursor: pointer;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: center;
-    margin: 0 auto;
 }
 
 div.social-button--background {
@@ -211,92 +346,9 @@ div.social-button--label {
     font-size: 0.8rem;
 }
 
-.body-section {
-    position: relative;
-    z-index: 2;
-}
-
-.bg-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: flex-start;
-    z-index: 0;
-}
-
-.bg-image {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-}
-
-h1.body-section, 
-h2.body-section, 
-h3.body-section, 
-a.body-section, 
-p.body-section {
-    color: var(--secondary-color);
-    text-align: left;
-    line-height: 1.5rem;
-    box-sizing: content-box;
-    align-items: center;
-}
-
-a.button {
-    color: var(--primary-color);
-    text-decoration: none;
-    border: var(--secondary-color) solid 1px;
-}
-
-a.button:hover {
-    color: var(--tertiary-color);
-    background-color: var(--btn-hover);
-    border: var(--btn-hover) solid 1px;
-}
-
-h1.body-section {
-    line-height: 3rem;
-    font-size: 3rem;
-    font-weight: 800;
-    padding-bottom: 1rem;
-}
-
-h2.body-section {
-    font-size: 2rem;
-    font-weight: 700;
-
-}
-
-h3.body-section {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-p.body-section {
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-span.highlight-pink {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-article.body-content {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 3rem;
-}
-
-section.body-section {
-    max-width: 800px;
-    align-items: flex-start;
-}
+/* ============================
+   IMAGE GRID
+============================ */
 
 article.image-grid {
     --gap: 0.125rem;
@@ -325,19 +377,24 @@ article.image-grid-span {
     margin: 0;
 }
 
-.image-grid-span > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-    content-visibility: auto;
+/* Grid item styling */
+.grid-item {
+    position: relative;
+    overflow: hidden;
 }
 
-.image-grid > img {
+.image-grid .grid-item,
+.image-grid-span .grid-item {
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     cursor: pointer;
+    transition: transform 0.3s ease;
     content-visibility: auto;
 }
 
@@ -348,6 +405,83 @@ article.image-grid-span {
 .image-grid-row-2 {
     grid-row: span 2;
 }
+
+/* ============================
+   MODAL
+============================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #00000083;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close svg {
+    fill: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    transition: fill 0.3s ease;
+}
+
+.modal-close svg:hover {
+    fill: var(--primary-color);
+}
+
+.modal-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
+    border: 1px solid #000;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================
+   SLIDER
+============================ */
 
 .slider {
     position: relative;
@@ -365,6 +499,7 @@ article.image-grid-span {
 
 .slider img {
     width: 100%;
+    height: fit-content;
     display: none;
     object-fit: contain;
     border: var(--secondary-color) solid 1px;
@@ -373,7 +508,7 @@ article.image-grid-span {
 
 img.displaySlide {
     display: block;
-    animation: fade 1s;
+    animation: fade 1s ease-in-out;
 }
 
 .slider button {
@@ -382,10 +517,11 @@ img.displaySlide {
     transform: translateY(-50%);
     font-size: 2rem;
     padding: 0.25rem 0.5rem;
-    background-color: var(--hightlight);
+    background-color: var(--highlight);
     color: #fff;
     border: none;
     cursor: pointer;
+    z-index: 5;
 }
 
 .prev-btn {
@@ -400,28 +536,16 @@ img.displaySlide {
     from {
         opacity: 0.4;
     }
+
     to {
         opacity: 1;
     }
 }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
+/* ============================
+   FOOTER
+============================ */
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-in.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-/* Footer styles */
 .footer-container {
     position: relative;
     margin-top: 3rem;
@@ -453,7 +577,7 @@ footer.footer-content {
     text-align: center;
     width: 100%;
     z-index: 1;
-    padding: 10rem 0;
+    padding-top: 6rem;
 }
 
 .footer-section {
@@ -479,12 +603,10 @@ li.footer-section,
     text-align: left;
     line-height: 1.5rem;
     box-sizing: content-box;
-
 }
 
 h1.footer-section {
-   
- line-height: 3rem;
+    line-height: 3rem;
     font-size: 3rem;
     font-weight: 800;
     padding-bottom: 1rem;
@@ -512,11 +634,11 @@ footer.footer-link {
 }
 
 img.footer-img {
-        position: relative;
-        z-index: 2;
-        height: 4rem;
-        width: 4rem;
-        text-align: center;
+    position: relative;
+    z-index: 2;
+    height: 4rem;
+    width: 4rem;
+    text-align: center;
 }
 
 .social-buttons {
@@ -530,12 +652,37 @@ img.footer-img {
     filter: invert(1);
 }
 
-/* Update media queries for different screen size*/
-@media screen and (max-width: 64rem) {
+/* ============================
+    FADE IN/OUT ANIMATION
+============================ */
 
-    /* 1024px */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* ============================
+   MEDIA QUERIES
+============================ */
+
+/* Large screens (up to 1024px) */
+@media screen and (max-width: 64rem) {
     :root {
         font-size: 22px;
+    }
+    .bg-image {
+        margin-right: 70%;
     }
 
     #theme-btn {
@@ -548,33 +695,32 @@ img.footer-img {
         font-size: 0.9rem;
         padding: 0 0.4rem;
     }
-    
-    h1.body-section, h1.footer-section {
+
+    h1.body-section,
+    h1.footer-section {
         font-size: 2.5rem;
         line-height: 2.7rem;
     }
-    
+
     h2.body-section {
         font-size: 1.8rem;
     }
 
-    article.image-grid {
-        --num-cols: 3;
-    }
-
+    article.image-grid,
     article.image-grid-span {
         --num-cols: 3;
     }
-
-    
 }
 
+/* Medium screens (up to 768px) */
 @media screen and (max-width: 48rem) {
-
-    /* 768px */
-
     :root {
         font-size: 20px;
+    }
+
+    .bg-image {
+        height: 70%;
+        margin-right: 50%;
     }
 
     #theme-btn {
@@ -592,34 +738,32 @@ img.footer-img {
         left: 1.5rem;
         padding: 0.4rem;
     }
-    
-    h1.body-section, h1.footer-section {
+
+    h1.body-section,
+    h1.footer-section {
         font-size: 2.2rem;
         line-height: 2.4rem;
         padding-bottom: 0.8rem;
     }
-    
+
     h2.body-section {
         font-size: 1.6rem;
     }
-    
+
     h3.body-section {
         font-size: 1.1rem;
     }
-    
+
     a.social-button {
         width: 6rem;
         padding: 1.5rem 1.5rem 1.5rem;
     }
-    
+
     footer.footer-content {
-        padding: 8rem 0;
+        padding-top: 4rem;
     }
 
-    article.image-grid {
-        --num-cols: 2;
-    }
-
+    article.image-grid,
     article.image-grid-span {
         --num-cols: 2;
     }
@@ -634,12 +778,15 @@ img.footer-img {
     }
 }
 
+/* Small screens (up to 600px) */
 @media screen and (max-width: 37.5rem) {
-
-    /* 600px */
-
     :root {
         font-size: 18px;
+    }
+
+    .bg-image {
+        height: 80%;
+        margin-right: 40%;
     }
 
     #theme-btn {
@@ -662,40 +809,34 @@ img.footer-img {
         left: 1rem;
         padding: 0.35rem;
     }
-    
-    h1.body-section, h1.footer-section {
+
+    h1.body-section,
+    h1.footer-section {
         font-size: 2rem;
         line-height: 2.2rem;
     }
-    
+
     h2.body-section {
         font-size: 1.4rem;
     }
-    
-    section.body-section, section.footer-section {
+
+    section.body-section,
+    section.footer-section {
         padding: 0 1rem;
     }
-    
+
     a.social-button {
         width: 5rem;
         padding: 1.2rem 1.2rem 1.2rem;
     }
-    
+
     div.social-button--label {
         font-size: 0.7rem;
         margin-top: 1.2rem;
     }
-    
+
     footer.footer-content {
-        padding: 6rem 0;
-    }
-
-    article.image-grid {
-        --num-cols: 2;
-    }
-
-    article.image-grid-span {
-        --num-cols: 2;
+        padding-top: 2rem;
     }
 
     .slider {
@@ -712,12 +853,10 @@ img.footer-img {
     }
 }
 
+/* Phone screens (up to 412px) */
 @media screen and (max-width: 25.75rem) {
-
-    /* 412px */
-
     :root {
-       font-size: 16px;
+        font-size: 16px;
     }
 
     .bg-container {
@@ -726,9 +865,9 @@ img.footer-img {
 
     .bg-image {
         width: auto;
-        height: 100%;
+        height: 50%;
         min-width: 100%;
-
+        margin-right: 40%;
     }
 
     #theme-btn {
@@ -751,41 +890,35 @@ img.footer-img {
         left: 0.75rem;
         padding: 0.3rem;
     }
-    
-    h1.body-section, h1.footer-section {
+
+    h1.body-section,
+    h1.footer-section {
         font-size: 1.8rem;
         line-height: 2rem;
         padding-bottom: 0.6rem;
     }
-    
+
     h2.body-section {
         font-size: 1.3rem;
     }
-    
+
     h3.body-section {
         font-size: 1rem;
     }
-    
-    p.body-section, p.footer-section {
+
+    p.body-section,
+    p.footer-section {
         font-size: 0.9rem;
     }
-    
+
     a.social-button {
         width: 5rem;
         padding: 1rem 1rem 1rem;
     }
-    
+
     footer.footer-content {
         flex-direction: column;
-        padding: 10rem 0;
-    }
-
-    article.image-grid {
-        --num-cols: 2;
-    }
-
-    article.image-grid-span {
-        --num-cols: 2;
+        padding-top: 8rem;
     }
 
     .slider {
@@ -801,5 +934,10 @@ img.footer-img {
         height: 1.6rem;
         width: 1.6rem;
     }
-}
 
+    .modal-close {
+        top: -30px;
+        right: 5px;
+        font-size: 30px;
+    }
+}
