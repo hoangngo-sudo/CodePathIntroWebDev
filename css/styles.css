@@ -605,6 +605,8 @@ li.footer-section,
     line-height: 1.5rem;
     box-sizing: content-box;
     list-style-type: none;
+    padding-left: 1rem;
+    margin-left: 0;
 }
 
 ul li::before {
@@ -698,7 +700,7 @@ img.footer-img {
 
     .bg-image {
         height: 100%;
-        width: 100%;
+        width: 200%; 
         left: -50%;
         transform: none;
     }
