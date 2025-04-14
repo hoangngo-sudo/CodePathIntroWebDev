@@ -1,5 +1,4 @@
-/*** Dark Mode ***/
-document.addEventListener("DOMContentLoaded", function () {
+function theme() {
   // Select the theme button
   let themeBtn = document.querySelector("#theme-btn");
   let darkmode = localStorage.getItem("darkmode");
@@ -33,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (themeBtn) {
     themeBtn.addEventListener("click", toggleThemeMode);
   }    
-});
+}
+document.addEventListener("DOMContentLoaded", theme);
 
   
