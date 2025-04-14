@@ -46,7 +46,7 @@
   --primary-dark-color: #ff4081;
   --secondary-color: #fff;
   --tertiary-color: #1c1c1c;
-  --background-color: #1c1c1c;
+  --background-color: #141414;
   --svg-color: #667096;
 
   --nav-bg: #ffffff61;
@@ -143,9 +143,8 @@ p.body-section,
 a.body-section {
   color: var(--secondary-color);
   text-align: left;
-  line-height: 1.5rem;
+  line-height: 2rem;
   box-sizing: content-box;
-  margin-bottom: 1rem;
 }
 
 h1.body-section {
@@ -240,8 +239,8 @@ nav.sticky-nav {
   transform: translateX(-50%);
   z-index: 1000;
   background-color: var(--nav-bg);
-  border-radius: 0.4rem;
-  padding: 0rem;
+  border-radius: 3rem;
+  padding: 0.5rem;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   display: flex;
@@ -270,16 +269,25 @@ a.nav-link:hover {
 img.header-img {
   position: relative;
   z-index: 2;
-  overflow: hidden;
+  /* overflow: hidden; */
   cursor: pointer;
-  height: auto;
-  width: 100%;
-  max-width: 100%;
+  height: 4rem;
+  width: 4rem;
   object-fit: cover;
   object-position: center;
   margin: 0 auto;
-  filter: drop-shadow(0 0 0.5rem var(--svg-color));
+  flex: 0 0 auto; /* Prevent flex shrinking */
+
+  /* filter: drop-shadow(0 0 0.5rem var(--svg-color)); */
 }
+
+
+
+    /* position: relative;
+    z-index: 2;
+    height: 4rem;
+    width: 4rem;
+    text-align: center; */
 
 /* ============================
    HEADER BUTTON and RSVP BUTTON LINK
@@ -289,17 +297,111 @@ a.button {
   color: var(--primary-color);
   text-decoration: none;
   border: var(--secondary-color) solid 1px;
-  padding: 0.5rem 0.7rem;
-  margin: 1rem 0;
+  /* background-color: var(--tertiary-color); */
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  margin: 2rem 0;
+  transition: 0.4s;
   display: inline-block;
-  transition: all 0.2s ease;
-  border-radius: 0.4rem;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+
+a.button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: auto;
+  margin: 0;
+  border-radius: 3rem;
+  filter: blur(12px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+span.button-text {
+  position: relative;
+  z-index: 10;
+}
+
+a.button img {
+  position: absolute;
+  inset: 1;
+  margin: auto;
+  pointer-events: none;
+  transition: 0.6s;
+  opacity: 0;
+}
+
+.button__J {
+  width: 3rem;
+  transform: translate(-1.5rem, -1rem)rotate(10deg);
+  filter: blur(0.5px);
+}
+
+.button__e {
+  width: 3rem;
+  transform: translate(-1.5rem, -1rem)rotate(5deg);
+  filter: blur(0.5px);
+}
+
+.button__s {
+  width: 2rem;
+  transform: translate(-2rem, -1rem)rotate(-20deg);
+  filter: blur(0.5px);
+}
+
+.button__u {
+  width: 2rem;
+  transform: translate(-2rem, -1rem)rotate(-10deg);
+  filter: blur(0.5px);
+}
+
+.button__s2 {
+  width: 4rem;
+  transform: translate(-1.5rem, -1rem)rotate(10deg);
+  filter: blur(0.5px);
+
+}
+
+a.button:hover::after {
+  opacity: 1;
 }
 
 a.button:hover {
   color: var(--secondary-color);
   background-color: var(--btn-hover);
-  border: var(--btn-hover) solid 1px;
+  transform: scale(1.3);
+}
+
+a.button:hover img {
+  opacity: 1;
+}
+
+a.button:hover .button__J {
+  transform: translate(-6rem, -0.5rem)scale(1.2);
+}
+
+a.button:hover .button__e {
+  transform: translate(-4rem, -2rem)scale(1.2);
+}
+
+a.button:hover .button__s {
+  transform: translate(-2.5rem, 0.5rem)scale(1.2);
+}
+
+a.button:hover .button__u {
+  transform: translate(-1.5rem, -2rem)scale(1.2);
+}
+
+a.button:hover .button__s2 {
+  transform: translate(-0.1rem, -1.5rem)scale(1.2);
 }
 
 a.social-button {
@@ -455,7 +557,7 @@ article.image-grid-span {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease;
 }
 
 .modal-content {
@@ -463,6 +565,9 @@ article.image-grid-span {
   margin: auto;
   max-width: 90%;
   max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-close {
@@ -493,6 +598,7 @@ article.image-grid-span {
   height: auto;
   max-width: 100%;
   max-height: 80vh;
+  object-fit: contain;
   border: 1px solid #000;
 }
 
@@ -557,6 +663,88 @@ article.image-grid-span {
 
 .next-btn {
   right: 0;
+}
+
+
+/* ============================
+   EXPANDABLE LIST
+============================ */
+
+ul.expand-list {
+  width: 100%;
+  max-width: 800px;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.expand-list-item {
+  position: relative;
+  margin-bottom: 1rem;
+  list-style-type: none;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.2rem;
+}
+
+.expand-list-item::before {
+  display: none;
+}
+
+.expand-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.expand-trigger::after {
+  content: '+++';
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.expand-list-item.active .expand-trigger::after {
+  content: '−−−';
+  transform: rotate(0deg);
+}
+
+.anchor-label {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.anchor-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.expand-list-item:hover .anchor-background {
+  opacity: 0.1;
+  background-color: var(--primary-color);
+}
+
+.expand-target-short {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 2rem;
+}
+
+.expand-list-item.active .expand-target-short {
+  max-height: 500px;
+  padding: 0 2rem 1rem 2rem;
 }
 
 /* ============================
@@ -715,6 +903,19 @@ img.footer-img {
    MEDIA QUERIES
 ============================ */
 
+/* Extra large screens (up to 2560px) */
+@media screen and (min-width: 1440px) {
+  .modal-img {
+    max-height: 85vh;
+    max-width: 85vw;
+    object-fit: contain;
+  }
+
+  .modal-content {
+    max-width: 100vw;
+  }
+}
+
 /* Large screens (up to 1024px) */
 @media screen and (max-width: 64rem) {
   :root {
@@ -742,6 +943,10 @@ img.footer-img {
     padding: 0 0.4rem;
   }
 
+  a.button {
+    padding: 0.9rem 1.8rem;
+  }
+
   h1.body-section,
   h1.footer-section {
     font-size: 2.5rem;
@@ -756,6 +961,23 @@ img.footer-img {
   article.image-grid-span {
     --num-cols: 3;
   }
+
+  .expand-trigger {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+  
+  .expand-trigger::after {
+    font-size: 1.4rem;
+  }
+  
+  .expand-target-short {
+    padding: 0 1.8rem;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 0 1.8rem 0.9rem 1.8rem;
+  }
 }
 
 /* Medium screens (up to 768px) */
@@ -765,9 +987,15 @@ img.footer-img {
   }
 
   .bg-image {
-    height: 80%;
+    height: 100%;
     width: auto;
-    transform: scale(1.1);
+    transform: scale(1.9);
+    left: -10%;
+  }
+
+  img.header-img {
+    height: 3rem;
+    width: 3rem;
   }
 
   a#theme-btn {
@@ -781,8 +1009,17 @@ img.footer-img {
   }
 
   a.nav-link {
-    font-size: 0.85rem;
+    font-size: 1rem;
     padding: 0 0.35rem;
+  }
+
+  a.button {
+    padding: 0.8rem 1.6rem;
+    min-width: 130px;
+  }
+
+  a.button:hover {
+    transform: scale(1.2);
   }
 
   nav.sticky-nav {
@@ -828,6 +1065,24 @@ img.footer-img {
     height: 3rem;
     width: 3rem;
   }
+
+  .expand-trigger {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  
+  .expand-trigger::after {
+    font-size: 1.3rem;
+  }
+  
+  .expand-target-short {
+    padding: 0 1.6rem;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 0 1.6rem 0.8rem 1.6rem;
+    max-height: 600px; /* Increase for smaller screens where text wraps more */
+  }
 }
 
 /* Small screens (up to 600px) */
@@ -837,10 +1092,15 @@ img.footer-img {
   }
 
   .bg-image {
-    height: 80%;
+    height: 100%;
     width: auto;
-    transform: scale(1);
+    transform: scale(1.9);
     left: -10%;
+  }
+
+  img.header-img {
+    height: 2.2rem;
+    width: 2.2rem;
   }
 
   a#theme-btn {
@@ -854,13 +1114,17 @@ img.footer-img {
   }
 
   a.nav-link {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0 0.3rem;
+  }
+
+  a.button {
+    padding: 1rem 1rem;
   }
 
   nav.sticky-nav {
     left: 1rem;
-    padding: 0.35rem;
+    padding: 0.4rem;
   }
 
   h1.body-section,
@@ -889,7 +1153,8 @@ img.footer-img {
   }
 
   footer.footer-content {
-    padding-top: 2rem;
+    flex-direction: column;
+    padding-top: 8rem;
   }
 
   .slider {
@@ -898,6 +1163,28 @@ img.footer-img {
 
   .slider img {
     border-width: 0.5px;
+  }
+
+  .expand-list {
+    max-width: 95%;
+  }
+  
+  .expand-trigger {
+    font-size: 0.85rem;
+    padding: 0.7rem;
+  }
+  
+  .expand-trigger::after {
+    font-size: 1.2rem;
+  }
+  
+  .expand-target-short {
+    padding: 0 1.4rem;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 0 1.4rem 0.7rem 1.4rem;
+    max-height: 800px;
   }
 
   img.footer-img {
@@ -926,6 +1213,11 @@ img.footer-img {
     transform: scale(1.3);
   }
 
+  img.header-img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
   a#theme-btn {
     height: 30px;
     width: 30px;
@@ -939,6 +1231,16 @@ img.footer-img {
   a.nav-link {
     font-size: 0.75rem;
     padding: 0 0.25rem;
+  }
+
+  a.button {
+    padding: 1rem 1rem;
+    min-width: 100px;
+    font-size: 1rem;
+  }
+
+  a.button:hover {
+    transform: scale(1.15);
   }
 
   nav.sticky-nav {
@@ -990,6 +1292,7 @@ img.footer-img {
     padding: 0.2rem 0.4rem;
   }
 
+
   img.footer-img {
     height: 2.5rem;
     width: 2.5rem;
@@ -1004,5 +1307,37 @@ img.footer-img {
   .modal-close svg {
     width: 30px;
     height: 30px;
+  }
+
+  .expand-list {
+    max-width: 100%;
+  }
+  
+  .expand-trigger {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+  
+  .expand-trigger::after {
+    font-size: 1.1rem;
+    margin-left: 0.3rem;
+  }
+  
+  .expand-target-short {
+    padding: 0 1rem;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 0 1rem 0.6rem 1rem;
+    max-height: 1000px; /* Allow more space for text on very small screens */
+  }
+  
+  .anchor-label h3.body-section {
+    font-size: 0.9rem;
+  }
+  
+  .expand-list-item {
+    margin-bottom: 0.8rem;
+    border-width: 0.5px;
   }
 }
