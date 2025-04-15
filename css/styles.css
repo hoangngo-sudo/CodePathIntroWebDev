@@ -276,14 +276,15 @@ img.header-img {
   object-fit: cover;
   object-position: center;
   margin: 0 auto;
-  flex: 0 0 auto; /* Prevent flex shrinking */
+  flex: 0 0 auto;
+  /* Prevent flex shrinking */
 
   /* filter: drop-shadow(0 0 0.5rem var(--svg-color)); */
 }
 
 
 
-    /* position: relative;
+/* position: relative;
     z-index: 2;
     height: 4rem;
     width: 4rem;
@@ -332,7 +333,9 @@ span.button-text {
 
 a.button img {
   position: absolute;
-  inset: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: auto;
   pointer-events: none;
   transition: 0.6s;
@@ -342,31 +345,31 @@ a.button img {
 .button__J {
   width: 3rem;
   transform: translate(-1.5rem, -1rem)rotate(10deg);
-  filter: blur(0.5px);
+  /* filter: blur(0.2px); */
 }
 
 .button__e {
   width: 3rem;
   transform: translate(-1.5rem, -1rem)rotate(5deg);
-  filter: blur(0.5px);
+  filter: blur(0.2px);
 }
 
 .button__s {
   width: 2rem;
   transform: translate(-2rem, -1rem)rotate(-20deg);
-  filter: blur(0.5px);
+  filter: blur(0.2px);
 }
 
 .button__u {
   width: 2rem;
   transform: translate(-2rem, -1rem)rotate(-10deg);
-  filter: blur(0.5px);
+  filter: blur(0.2px);
 }
 
 .button__s2 {
   width: 4rem;
   transform: translate(-1.5rem, -1rem)rotate(10deg);
-  filter: blur(0.5px);
+  filter: blur(0.2px);
 
 }
 
@@ -385,23 +388,23 @@ a.button:hover img {
 }
 
 a.button:hover .button__J {
-  transform: translate(-6rem, -0.5rem)scale(1.2);
+  transform: translate(-4.5rem, -0.5rem)scale(1.2);
 }
 
 a.button:hover .button__e {
-  transform: translate(-4rem, -2rem)scale(1.2);
+  transform: translate(-3rem, -2.5rem)scale(1.2);
 }
 
 a.button:hover .button__s {
-  transform: translate(-2.5rem, 0.5rem)scale(1.2);
+  transform: translate(-1.2rem,0.1rem)scale(1.2);
 }
 
 a.button:hover .button__u {
-  transform: translate(-1.5rem, -2rem)scale(1.2);
+  transform: translate(-0.5rem, -2.5rem)scale(1.2);
 }
 
 a.button:hover .button__s2 {
-  transform: translate(-0.1rem, -1.5rem)scale(1.2);
+  transform: translate(0.5rem, -1.5rem)scale(1.2);
 }
 
 a.social-button {
@@ -753,7 +756,7 @@ ul.expand-list {
    RSVP FORM
 ============================ */
 
-.form-container {
+/* .form-container {
   padding: 1rem 0;
   max-width: 800px;
 }
@@ -845,7 +848,7 @@ ul.expand-list {
 .submit-button:hover {
   transform: scale(1.05);
   background-color: var(--btn-hover);
-}
+} */
 
 /* ============================
    FOOTER
@@ -1066,15 +1069,15 @@ img.footer-img {
     font-size: 1rem;
     padding: 0.9rem;
   }
-  
+
   .expand-trigger::after {
     font-size: 1.4rem;
   }
-  
+
   .expand-target-short {
     padding: 0 1.8rem;
   }
-  
+
   .expand-list-item.active .expand-target-short {
     padding: 0 1.8rem 0.9rem 1.8rem;
   }
@@ -1170,18 +1173,19 @@ img.footer-img {
     font-size: 0.9rem;
     padding: 0.8rem;
   }
-  
+
   .expand-trigger::after {
     font-size: 1.3rem;
   }
-  
+
   .expand-target-short {
     padding: 0 1.6rem;
   }
-  
+
   .expand-list-item.active .expand-target-short {
     padding: 0 1.6rem 0.8rem 1.6rem;
-    max-height: 600px; /* Increase for smaller screens where text wraps more */
+    max-height: 600px;
+    /* Increase for smaller screens where text wraps more */
   }
 }
 
@@ -1268,20 +1272,20 @@ img.footer-img {
   .expand-list {
     max-width: 95%;
   }
-  
+
   .expand-trigger {
     font-size: 0.85rem;
     padding: 0.7rem;
   }
-  
+
   .expand-trigger::after {
     font-size: 1.2rem;
   }
-  
+
   .expand-target-short {
     padding: 0 1.4rem;
   }
-  
+
   .expand-list-item.active .expand-target-short {
     padding: 0 1.4rem 0.7rem 1.4rem;
     max-height: 800px;
@@ -1412,30 +1416,31 @@ img.footer-img {
   .expand-list {
     max-width: 100%;
   }
-  
+
   .expand-trigger {
     font-size: 0.8rem;
     padding: 0.6rem;
   }
-  
+
   .expand-trigger::after {
     font-size: 1.1rem;
     margin-left: 0.3rem;
   }
-  
+
   .expand-target-short {
     padding: 0 1rem;
   }
-  
+
   .expand-list-item.active .expand-target-short {
     padding: 0 1rem 0.6rem 1rem;
-    max-height: 1000px; /* Allow more space for text on very small screens */
+    max-height: 1000px;
+    /* Allow more space for text on very small screens */
   }
-  
+
   .anchor-label h3.body-section {
     font-size: 0.9rem;
   }
-  
+
   .expand-list-item {
     margin-bottom: 0.8rem;
     border-width: 0.5px;
