@@ -1,8 +1,6 @@
 function theme() {
-  // Select the theme button
-  let themeBtn = document.querySelector("#theme-btn");
+  let themeButtons = document.querySelectorAll(".theme-btn");
   let darkmode = localStorage.getItem("darkmode");
-  // Create a callback function
 
   const toggleThemeMode = () => {
     const currDarkmode = localStorage.getItem("darkmode");
@@ -27,11 +25,12 @@ function theme() {
     enableDarkMode();
   }
 
-  // Register a 'click' event listener for the theme button,
-  // and tell it to use toggleThemeMode as its callback function
-  if (themeBtn) {
-    themeBtn.addEventListener("click", toggleThemeMode);
-  }    
+  // Add click event listener to all theme buttons
+  if (themeButtons.length > 0) {
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", toggleThemeMode);
+    });
+  }
 }
 document.addEventListener("DOMContentLoaded", theme);
 
@@ -191,7 +190,7 @@ function form() {
         input.value = "";
       }
     });
-    
+
     const acknowledgeLabel = document.querySelector('label[for="acknowledge"]');
     if (acknowledgeLabel) {
       acknowledgeLabel.style.color = "";
@@ -212,3 +211,50 @@ function form() {
 }
 
 document.addEventListener("DOMContentLoaded", form);
+
+// --------------------------------------------------//
+function handleSidebar() {
+  // Get the elements we need to work with
+  const hamburger = document.querySelector(".hamburger");
+  const menuSidebar = document.querySelector(".menu-sidebar");
+  const overlay = document.querySelector(".overlay");
+  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+
+  // Function to open the sidebar
+  const openSidebar = () => {
+    menuSidebar.classList.add("active");
+    overlay.classList.add("active");
+    overlay.style.visibility = "visible";
+  };
+
+  // Function to close the sidebar
+  const closeSidebar = () => {
+    menuSidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    overlay.style.visibility = "hidden";
+  };
+
+  // Add click event to hamburger icon
+  if (hamburger) {
+    hamburger.addEventListener("click", () => {
+      if (menuSidebar.classList.contains("active")) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+  }
+
+  // Close sidebar when clicking on the overlay
+  if (overlay) {
+    overlay.addEventListener("click", closeSidebar);
+  }
+
+  if (sidebarLinks.length > 0) {
+    sidebarLinks.forEach((link) => {
+      link.addEventListener("click", closeSidebar);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", handleSidebar);
