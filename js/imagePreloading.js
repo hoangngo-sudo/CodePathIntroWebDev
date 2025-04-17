@@ -1,7 +1,7 @@
 // Reference: https://stackoverflow.com/questions/10240110/how-do-you-cache-an-image-in-javascript
 
 // Define the preloadImages function
-https: function preloadImages(array, waitForOtherResources, timeout) {
+function preloadImages(array, waitForOtherResources, timeout) {
   var loaded = false,
     list = preloadImages.list || [],
     imgs = array.slice(0),

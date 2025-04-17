@@ -200,7 +200,6 @@ span.highlight-pink {
   transform-origin: left center;
 }
 
-/* Content sections */
 .body-section {
   position: relative;
   z-index: 5;
@@ -211,11 +210,14 @@ article.body-content {
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding-bottom: 5rem;
+  padding-bottom: 7rem;
 }
 
 section.body-section {
-  max-width: 800px;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
   align-items: flex-start;
 }
 
@@ -277,18 +279,7 @@ img.header-img {
   object-position: center;
   margin: 0 auto;
   flex: 0 0 auto;
-  /* Prevent flex shrinking */
-
-  /* filter: drop-shadow(0 0 0.5rem var(--svg-color)); */
 }
-
-
-
-/* position: relative;
-    z-index: 2;
-    height: 4rem;
-    width: 4rem;
-    text-align: center; */
 
 /* ============================
    HEADER BUTTON and RSVP BUTTON LINK
@@ -345,7 +336,7 @@ a.button img {
 .button__J {
   width: 3rem;
   transform: translate(-1.5rem, -1rem)rotate(10deg);
-  /* filter: blur(0.2px); */
+  filter: blur(0.2px);
 }
 
 .button__e {
@@ -752,6 +743,15 @@ ul.expand-list {
   padding: 0 2rem 1rem 2rem;
 }
 
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 /* ============================
    FOOTER
 ============================ */
@@ -780,14 +780,14 @@ ul.expand-list {
 }
 
 footer.footer-content {
-  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+    align-items: center;
+    flex-direction: row;
+  position: relative;
+  padding-top: 6rem;
   width: 100%;
   z-index: 1;
-  padding-top: 6rem;
 }
 
 .footer-section {
@@ -795,12 +795,12 @@ footer.footer-content {
 }
 
 section.footer-section {
-  max-width: 800px;
-  align-items: center;
+  margin: 0 auto 1rem 2rem;
+  max-width: 600px;
+  align-items: left;
   text-align: left;
   padding: 1rem;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 h1.footer-section,
@@ -814,8 +814,6 @@ li.footer-section,
   line-height: 1.5rem;
   box-sizing: content-box;
   list-style-type: none;
-  padding-left: 1rem;
-  margin-left: 0;
 }
 
 ul li::before {
@@ -832,6 +830,12 @@ h1.footer-section {
 p.footer-section {
   font-size: 1rem;
   font-weight: 400;
+}
+
+li.footer-section,
+.footer-section ul.contact-info {
+  padding-left: 0;
+  max-width: 90%;
 }
 
 .footer-section a {
@@ -912,7 +916,7 @@ img.footer-img {
 @media screen and (min-width: 1440px) {
   .modal-img {
     max-height: 85vh;
-    max-width: 85vw;
+    max-width: 100vw;
     object-fit: contain;
   }
 
@@ -982,6 +986,15 @@ img.footer-img {
 
   .expand-list-item.active .expand-target-short {
     padding: 0 1.8rem 0.9rem 1.8rem;
+  }
+
+  footer.footer-content {
+    align-items: center;
+    padding-top: 6rem;
+  }
+  .footer-section {
+    max-width: 90%;
+    text-align: center;
   }
 }
 
@@ -1053,10 +1066,6 @@ img.footer-img {
     padding: 1.5rem 1.5rem 1.5rem;
   }
 
-  footer.footer-content {
-    padding-top: 4rem;
-  }
-
   article.image-grid,
   article.image-grid-span {
     --num-cols: 2;
@@ -1087,7 +1096,15 @@ img.footer-img {
   .expand-list-item.active .expand-target-short {
     padding: 0 1.6rem 0.8rem 1.6rem;
     max-height: 600px;
-    /* Increase for smaller screens where text wraps more */
+  }
+
+  footer.footer-content {
+    flex-direction: column;
+    padding-top: 8rem;
+  }
+
+  .footer-section {
+    max-width: 90%;
   }
 }
 
@@ -1158,11 +1175,6 @@ img.footer-img {
     margin-top: 1.2rem;
   }
 
-  footer.footer-content {
-    flex-direction: column;
-    padding-top: 8rem;
-  }
-
   .slider {
     max-width: 90%;
   }
@@ -1196,6 +1208,15 @@ img.footer-img {
   img.footer-img {
     height: 2.2rem;
     width: 2.2rem;
+  }
+
+  footer.footer-content {
+    flex-direction: column;
+    padding-top: 8rem;
+  }
+
+  .footer-section {
+    max-width: 80%;
   }
 }
 
@@ -1287,6 +1308,10 @@ img.footer-img {
   footer.footer-content {
     flex-direction: column;
     padding-top: 8rem;
+  }
+
+  .footer-section {
+    max-width: 80%;
   }
 
   .slider {

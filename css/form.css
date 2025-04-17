@@ -50,30 +50,35 @@ body {
 }
 
 .title h1 {
-    font-size: 3rem;
-    text-align: left;
-    color: #6703c4;
-    font-weight: 600;
-    line-height: 4rem;
-    margin-bottom: 2rem;
+  font-size: 3rem;
+  text-align: left;
+  color: #6703c4;
+  font-weight: 600;
+  line-height: 4rem;
+  margin-bottom: 2rem;
 }
 
 .title p {
-    font-size: 1rem;
-    text-align: left;
-    line-height: 2rem;
-    font-weight: 300;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 2rem;
+  font-weight: 300;
 }
 
 .name-field,
 .email-field,
 .phone-field,
 .form-field {
-  font-weight: 400;
   margin-bottom: 15px;
   padding: 1.5rem;
   background-color: #FDFEFE;
   border-radius: 8px;
+}
+
+.name label,
+.email label,
+.phone label {
+  font-weight: 400;
 }
 
 .question-div {
@@ -85,11 +90,10 @@ body {
   max-width: 400px;
   border: 0;
   border-bottom: 1px solid #DCD7D7;
-  font-size: 15px;
+  font-size: 1rem;
   padding: 10px 5px;
   background-color: transparent;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Poppins', sans-serif;
 }
 
 .input-field input:focus {
@@ -140,7 +144,6 @@ input::placeholder {
   cursor: pointer;
 }
 
-/* Add these styles for the registration list */
 .registration-list {
   background-color: #FDFEFE;
   border-radius: 8px;

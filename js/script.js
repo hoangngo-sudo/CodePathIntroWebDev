@@ -191,6 +191,11 @@ function form() {
         input.value = "";
       }
     });
+    
+    const acknowledgeLabel = document.querySelector('label[for="acknowledge"]');
+    if (acknowledgeLabel) {
+      acknowledgeLabel.style.color = "";
+    }
   };
 
   // Add event listener to the submit button
