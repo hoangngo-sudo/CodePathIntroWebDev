@@ -144,8 +144,13 @@ input::placeholder {
 .registration-entry {
   padding: 10px;
   margin-bottom: 10px;
+  margin-top: 0;
   border-left: 3px solid #6703c4;
   background-color: #f8f4fd;
+}
+
+.registration-list .registration-entry:last-child {
+  margin-bottom: 0;
 }
 
 .registration-entry p {
@@ -168,17 +173,20 @@ input::placeholder {
 }
 
 /* ============================
-   MEDIA QUERIES
+    MEDIA QUERIES
 ============================ */
 
-/* Large screens (up to 1024px) */
+/* Large screens (max-width: 1024px) */
 @media screen and (max-width: 64rem) {
+
+  /* 64rem = 1024px */
   :root {
+    /* Root font size changes for this breakpoint */
     font-size: 15px;
   }
 
   .form {
-    max-width: 90%;
+    max-width: 60%;
   }
 
   .title {
@@ -190,10 +198,20 @@ input::placeholder {
     font-size: 2.5rem;
     line-height: 3rem;
   }
+
+  .title p {
+    /* Implicitly 1rem * 15px = 15px */
+    /* font-size: 1rem; */
+    /* inherits from base */
+    /* Implicitly 2rem * 15px = 30px */
+    /* line-height: 2rem; */
+    /* inherits from base */
+  }
 }
 
-/* Medium screens (up to 768px) */
+/* Medium screens (max-width: 768px) */
 @media screen and (max-width: 48rem) {
+
   :root {
     font-size: 14px;
   }
@@ -216,6 +234,7 @@ input::placeholder {
   .email-field,
   .phone-field,
   .form-field {
+    /* 1.2rem * 14px = 16.8px */
     padding: 1.2rem;
   }
 
@@ -224,7 +243,7 @@ input::placeholder {
   }
 }
 
-/* Small screens (up to 600px) */
+/* Small screens (max-width: 600px) */
 @media screen and (max-width: 37.5rem) {
   :root {
     font-size: 13px;
@@ -235,9 +254,14 @@ input::placeholder {
   }
 
   .title h1 {
-    font-size: 2rem;
-    line-height: 2.2rem;
+    /* font-size: 3rem;
+    line-height: 3rem; */
     margin-bottom: 1.2rem;
+  }
+
+  .title p {
+    /* font-size: 1rem;
+    line-height: 1.8rem; */
   }
 
   .title {
@@ -257,8 +281,9 @@ input::placeholder {
   }
 }
 
-/* Phone screens (up to 430px) */
+/* Phone screens (max-width: 430px) */
 @media screen and (max-width: 27rem) {
+
   :root {
     font-size: 12px;
   }
@@ -268,9 +293,14 @@ input::placeholder {
   }
 
   .title h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 2rem;
     margin-bottom: 1rem;
+  }
+
+  .title p {
+    font-size: 1rem;
+    line-height: 1.8rem;
   }
 
   .title {
@@ -282,6 +312,7 @@ input::placeholder {
   .email-field,
   .phone-field,
   .form-field {
+    /* 0.8rem * 12px = 9.6px */
     padding: 0.8rem;
     margin-bottom: 10px;
   }
@@ -302,5 +333,8 @@ input::placeholder {
 
   .input-field input {
     max-width: 100%;
+    /* Implicitly 1rem * 12px = 12px */
+    /* font-size: 1rem; */
+    /* inherits from base */
   }
 }

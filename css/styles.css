@@ -192,8 +192,8 @@ span.highlight-pink {
 /* Background container */
 .bg-container {
   position: absolute;
-  left: 0;
-  top: 10%;
+  left: 40%;
+  top: 5%;
   width: 100%;
   height: 100vh;
   z-index: var(--z-background);
@@ -206,9 +206,25 @@ span.highlight-pink {
   width: auto;
   max-height: 100vh;
   left: 0;
-  transform: scale(1.3);
+  transform: scale(1);
   transform-origin: left center;
   z-index: var(--z-background);
+}
+
+.light-bg {
+  opacity: 0;
+}
+
+.dark-bg {
+  opacity: 1;
+}
+
+body:not(.dark-mode) .dark-bg {
+  opacity: 0;
+}
+
+body:not(.dark-mode) .light-bg {
+  opacity: 1;
 }
 
 .body-section {
@@ -225,7 +241,7 @@ article.body-content {
 }
 
 article.body-content.body-content--firstviewport {
-  padding-bottom: 7rem;
+  padding-bottom: 8.5rem;
 }
 
 section.body-section {
@@ -1065,7 +1081,12 @@ img.footer-img {
   .bg-image {
     height: 100%;
     width: auto;
-    transform: scale(1.2);
+    transform: scale(1.1);
+  }
+  .bg-container {
+  position: absolute;
+  left: 20%;
+  top: 5%;
   }
 
   a#theme-btn {
@@ -1178,8 +1199,14 @@ img.footer-img {
   .bg-image {
     height: 100%;
     width: auto;
-    transform: scale(1.9);
+    transform: scale(1);
     left: -10%;
+  }
+
+  .bg-container {
+  position: absolute;
+  left: 30%;
+  top: 5%;
   }
 
   img.header-img {
@@ -1316,8 +1343,14 @@ img.footer-img {
   .bg-image {
     height: 100%;
     width: auto;
-    transform: scale(1.9);
+    transform: scale(0.8);
     left: -10%;
+  }
+
+  .bg-container {
+    position: absolute;
+    left: 30%;
+    top: 3%;
   }
 
   img.header-img {
@@ -1597,7 +1630,6 @@ img.footer-img {
   .expand-list-item.active .expand-target-short {
     padding: 0 1rem 0.6rem 1rem;
     max-height: 1000px;
-    /* Allow more space for text on very small screens */
   }
 
   .anchor-label h3.body-section {
