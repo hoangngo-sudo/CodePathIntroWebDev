@@ -94,7 +94,7 @@ body {
 }
 
 label {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 input,
@@ -186,7 +186,7 @@ input::placeholder {
   }
 
   .form {
-    max-width: 60%;
+    max-width: 85%;
   }
 
   .title {
@@ -199,14 +199,6 @@ input::placeholder {
     line-height: 3rem;
   }
 
-  .title p {
-    /* Implicitly 1rem * 15px = 15px */
-    /* font-size: 1rem; */
-    /* inherits from base */
-    /* Implicitly 2rem * 15px = 30px */
-    /* line-height: 2rem; */
-    /* inherits from base */
-  }
 }
 
 /* Medium screens (max-width: 768px) */
@@ -227,7 +219,7 @@ input::placeholder {
   }
 
   .title p {
-    line-height: 1.8rem;
+    line-height: 1.9rem;
   }
 
   .name-field,
@@ -257,11 +249,6 @@ input::placeholder {
     /* font-size: 3rem;
     line-height: 3rem; */
     margin-bottom: 1.2rem;
-  }
-
-  .title p {
-    /* font-size: 1rem;
-    line-height: 1.8rem; */
   }
 
   .title {
@@ -333,8 +320,5 @@ input::placeholder {
 
   .input-field input {
     max-width: 100%;
-    /* Implicitly 1rem * 12px = 12px */
-    /* font-size: 1rem; */
-    /* inherits from base */
   }
 }
