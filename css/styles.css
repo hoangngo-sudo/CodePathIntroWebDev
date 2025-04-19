@@ -790,7 +790,6 @@ article.image-grid-span {
   right: 0;
 }
 
-
 /* ============================
    EXPANDABLE LIST
 ============================ */
@@ -1027,7 +1026,7 @@ img.footer-img {
 }
 
 /* ============================
-   CONTAINER UTILITY
+   CONTAINER
 ============================ */
 
 .container {
@@ -1044,23 +1043,229 @@ img.footer-img {
    MEDIA QUERIES
 ============================ */
 
-/* Extra large screens (up to 2560px) */
-@media screen and (max-width: 90rem) {
-  .modal-img {
-    max-height: 90vh;
-    max-width: 100vw;
-    object-fit: contain;
+/* ----------------------------------------
+   MIN-WIDTH QUERIES (MOBILE FIRST)
+---------------------------------------- */
+
+/* Smaller phones (min-width: 375px) */
+@media screen and (min-width: 375px) {
+  :root {
+    font-size: 15px;
   }
 
-  .modal-content {
-    max-width: 100%;
+  .bg-container {
+    position: fixed;
+    left: 35%;
+    top: 0;
+  }
+
+  .bg-image {
+    transform: scale(1.2);
+    left: 0;
   }
 }
 
-/* Large screens (up to 1024px) */
-@media screen and (max-width: 64rem) {
+/* Small phones (min-width: 390px) */
+@media screen and (min-width: 390px) {
+  :root {
+    font-size: 16px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 35%;
+  }
+}
+
+/* Small tablets (min-width: 576px) */
+@media screen and (min-width: 576px) {
+  :root {
+    font-size: 17px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 38%;
+  }
+
+  .bg-image {
+    transform: scale(1.1);
+  }
+}
+
+/* Tablets (min-width: 768px) */
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 18px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 40%;
+  }
+
+  nav.sticky-nav {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  article.image-grid,
+  article.image-grid-span {
+    --num-cols: 3;
+  }
+}
+
+/* Medium tablets and small laptops (min-width: 992px) */
+@media screen and (min-width: 992px) {
+  :root {
+    font-size: 20px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 42%;
+  }
+
+  .bg-image {
+    transform: scale(1);
+  }
+
+  article.image-grid,
+  article.image-grid-span {
+    --num-cols: 4;
+  }
+}
+
+/* Large tablets and laptops (min-width: 1025px) */
+@media only screen and (min-width: 1025px) {
+  :root {
+    font-size: 21px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 45%;
+  }
+}
+
+/* Small desktops (min-width: 1200px) */
+@media screen and (min-width: 1200px) {
   :root {
     font-size: 22px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 46%;
+  }
+}
+
+/* Medium desktops (min-width: 1280px) */
+@media screen and (min-width: 1280px) {
+  :root {
+    font-size: 23px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 47%;
+  }
+}
+
+/* Large desktops (min-width: 1380px) */
+@media screen and (min-width: 1380px) {
+  :root {
+    font-size: 24px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 48%;
+  }
+}
+
+/* Extra large desktops (min-width: 1400px) */
+@media screen and (min-width: 1400px) {
+  .bg-container {
+    position: fixed;
+    left: 49%;
+  }
+}
+
+/* ----------------------------------------
+   MAX-WIDTH QUERIES (DESKTOP FIRST)
+---------------------------------------- */
+
+/* Extra large desktops (max-width: 1450px) */
+@media only screen and (max-width: 1450px) {
+  :root {
+    font-size: 24px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 48%;
+    top: 0;
+  }
+
+  .bg-image {
+    transform: scale(1);
+  }
+
+  .modal-img {
+    max-height: 90vh;
+    max-width: 90vw;
+  }
+}
+
+/* Large desktops (max-width: 1440px) and (min-width: 1025px) */
+@media only screen and (max-width: 1440px) and (min-width: 1025px) {
+  :root {
+    font-size: 23px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 47%;
+  }
+}
+
+/* Medium-large desktops (max-width: 1280px) */
+@media screen and (max-width: 1280px) {
+  :root {
+    font-size: 22px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 46%;
+  }
+}
+
+/* Medium desktops (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+  :root {
+    font-size: 21px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 45%;
+  }
+}
+
+/* Small desktops and laptops (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+  :root {
+    font-size: 20px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 44%;
   }
 
   .menu-sidebar {
@@ -1077,35 +1282,9 @@ img.footer-img {
     font-size: 1.1rem;
   }
 
-  .bg-image {
-    height: 100%;
-    width: auto;
-    transform: scale(1.1);
-  }
-
-  .bg-container {
-  position: absolute;
-  left: 40%;
-  top: 5%;
-  }
-
-  a#theme-btn {
-    height: 45px;
-    width: 45px;
-  }
-
-  #theme-btn svg {
-    width: 22px;
-    height: 22px;
-  }
-
   a.nav-link {
     font-size: 0.9rem;
     padding: 0 0.4rem;
-  }
-
-  a.button {
-    padding: 0.9rem 2rem;
   }
 
   h1.body-section,
@@ -1116,6 +1295,26 @@ img.footer-img {
 
   h2.body-section {
     font-size: 1.8rem;
+  }
+}
+
+/* Small desktops and laptops (max-width: 1024px) and (min-width: 986px) */
+@media only screen and (max-width: 1024px) and (min-width: 986px) {
+  .bg-container {
+    position: fixed;
+    left: 43%;
+  }
+}
+
+/* Large tablets (max-width: 992px) */
+@media screen and (max-width: 992px) {
+  :root {
+    font-size: 19px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 42%;
   }
 
   article.image-grid,
@@ -1132,37 +1331,35 @@ img.footer-img {
     font-size: 1.4rem;
   }
 
-  .expand-target-short {
-    padding: 0 1.8rem;
-  }
-
-  .expand-list-item.active .expand-target-short {
-    padding: 0 1.8rem 0.9rem 1.8rem;
-  }
-
   footer.footer-content {
     align-items: center;
     padding-top: 6rem;
   }
+}
 
-  .footer-section {
-    max-width: 90%;
-    text-align: center;
+/* Medium-large tablets (max-width: 985px) and (min-width: 768px) */
+@media only screen and (max-width: 985px) and (min-width: 768px) {
+  :root {
+    font-size: 18px;
   }
 
-  ul.contact-info {
-    max-width: 90%;
+  .bg-container {
+    position: fixed;
+    left: 40%;
   }
 }
 
-/* Medium screens (up to 768px) */
-@media screen and (max-width: 48rem) {
+/* Medium tablets (max-width: 767px) */
+@media screen and (max-width: 767px) {
   :root {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .hamburger {
+    display: block;
     padding: 8px;
+    top: 0.9rem;
+    left: 0.9rem;
   }
 
   .hamburger-icon {
@@ -1171,62 +1368,22 @@ img.footer-img {
   }
 
   .menu-sidebar {
+    display: block;
     width: 15rem;
     right: -15rem;
-  }
-
-  .sidebar-links {
-    padding: 1.8rem;
-    gap: 1.4rem;
-  }
-  
-  .sidebar-link {
-    font-size: 1.1rem;
   }
 
   nav.sticky-nav {
     display: none;
   }
 
-  .hamburger {
-    display: block;
-  }
-
-  .menu-sidebar {
-    display: block;
+  .bg-container {
+    position: fixed;
+    left: 38%;
   }
 
   .bg-image {
-    height: 100%;
-    width: auto;
-    transform: scale(1);
-    left: -10%;
-  }
-
-  .bg-container {
-  position: absolute;
-  left: 40%;
-  top: 5%;
-  }
-
-  img.header-img {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  a#theme-btn {
-    height: 40px;
-    width: 40px;
-  }
-
-  #theme-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  a.nav-link {
-    font-size: 1rem;
-    padding: 0 0.35rem;
+    transform: scale(1.05);
   }
 
   a.button {
@@ -1238,30 +1395,11 @@ img.footer-img {
     transform: scale(1.2);
   }
 
-  nav.sticky-nav {
-    left: 1.5rem;
-    transform: none;
-    padding: 0.4rem;
-  }
-
   h1.body-section,
   h1.footer-section {
     font-size: 2.2rem;
     line-height: 2.4rem;
     padding-bottom: 0.8rem;
-  }
-
-  h2.body-section {
-    font-size: 1.6rem;
-  }
-
-  h3.body-section {
-    font-size: 1.1rem;
-  }
-
-  a.social-button {
-    width: 6rem;
-    padding: 1.5rem 1.5rem 1.5rem;
   }
 
   article.image-grid,
@@ -1273,46 +1411,24 @@ img.footer-img {
     max-width: 80%;
   }
 
-  img.footer-img {
-    height: 3rem;
-    width: 3rem;
-  }
-
-  .expand-trigger {
-    font-size: 0.9rem;
-    padding: 0.8rem;
-  }
-
-  .expand-trigger::after {
-    font-size: 1.3rem;
-  }
-
-  .expand-target-short {
-    padding: 0 1.6rem;
-  }
-
-  .expand-list-item.active .expand-target-short {
-    padding: 0 1.6rem 0.8rem 1.6rem;
-    max-height: 600px;
-  }
-
   footer.footer-content {
     flex-direction: column;
-    padding-top: 8rem;
-  }
-
-  .footer-section {
-    max-width: 90%;
-  }
-  ul.contact-info {
-    max-width: 90%;
+    padding-top: 7rem;
   }
 }
 
-/* Small screens (up to 600px) */
-@media screen and (max-width: 37.5rem) {
+/* Medium-small tablets (max-width: 767px) and (min-width: 480px) */
+@media only screen and (max-width: 767px) and (min-width: 480px) {
+  .bg-container {
+    position: fixed;
+    left: 35%;
+  }
+}
+
+/* Small tablets (max-width: 600px) */
+@media screen and (max-width: 600px) {
   :root {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .hamburger {
@@ -1320,66 +1436,24 @@ img.footer-img {
     top: 0.8rem;
     left: 0.8rem;
   }
-  
+
   .hamburger-icon {
     width: 1.3rem;
     height: 1.3rem;
   }
-  
+
   .menu-sidebar {
     width: 14rem;
     right: -14rem;
   }
-  
-  .sidebar-links {
-    padding: 1.2rem;
-    gap: 1rem;
-  }
-  
-  .sidebar-link {
-    font-size: 0.9rem;
+
+  .bg-container {
+    position: fixed;
+    left: 33%;
   }
 
   .bg-image {
-    height: 100%;
-    width: auto;
-    transform: scale(0.8);
-    left: -10%;
-  }
-
-  .bg-container {
-    position: absolute;
-    left: 30%;
-    top: 3%;
-  }
-
-  img.header-img {
-    height: 2.2rem;
-    width: 2.2rem;
-  }
-
-  a#theme-btn {
-    height: 35px;
-    width: 35px;
-  }
-
-  #theme-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  a.nav-link {
-    font-size: 1rem;
-    padding: 0 0.3rem;
-  }
-
-  a.button {
-    padding: 0.7rem 0.5rem;
-  }
-
-  nav.sticky-nav {
-    left: 1rem;
-    padding: 0.4rem;
+    transform: scale(1.1);
   }
 
   h1.body-section,
@@ -1388,78 +1462,40 @@ img.footer-img {
     line-height: 2.2rem;
   }
 
-  h2.body-section {
-    font-size: 1.4rem;
-  }
-
   section.body-section,
   section.footer-section {
     padding: 0 1rem;
   }
 
-  a.social-button {
-    width: 5rem;
-    padding: 1.2rem 1.2rem 1.2rem;
-  }
-
-  div.social-button--label {
-    font-size: 0.7rem;
-    margin-top: 1.2rem;
-  }
-
   .slider {
     max-width: 90%;
   }
+}
 
-  .slider img {
-    border-width: 0.5px;
+/* Larger phones (max-width: 568px) */
+@media screen and (max-width: 568px) {
+  :root {
+    font-size: 16px;
   }
 
-  .expand-list {
-    max-width: 95%;
+  .bg-container {
+    position: fixed;
+    left: 30%;
   }
 
-  .expand-trigger {
-    font-size: 0.85rem;
-    padding: 0.7rem;
+  .bg-image {
+    transform: scale(1.2);
   }
 
-  .expand-trigger::after {
-    font-size: 1.2rem;
-  }
-
-  .expand-target-short {
-    padding: 0 1.4rem;
-  }
-
-  .expand-list-item.active .expand-target-short {
-    padding: 0 1.4rem 0.7rem 1.4rem;
-    max-height: 800px;
-  }
-
-  img.footer-img {
-    height: 2.2rem;
-    width: 2.2rem;
-  }
-
-  footer.footer-content {
-    flex-direction: column;
-    padding-top: 8rem;
-  }
-
-  .footer-section {
-    max-width: 80%;
-  }
-
-  ul.contact-info {
-    max-width: 80%;
+  a.button {
+    padding: 0.7rem 1.2rem;
   }
 }
 
-/* Phone screens (up to 431px) */
-@media screen and (max-width: 27rem) {
+/* Medium phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
   :root {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .hamburger {
@@ -1467,62 +1503,114 @@ img.footer-img {
     top: 0.7rem;
     left: 0.7rem;
   }
-  
+
   .hamburger-icon {
     width: 1.2rem;
     height: 1.2rem;
   }
-  
+
+  .menu-sidebar {
+    width: 13rem;
+    right: -13rem;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 26%;
+    height: 100vh;
+  }
+
+  .bg-image {
+    transform: scale(1.3);
+  }
+
+  h1.body-section,
+  h1.footer-section {
+    font-size: 1.9rem;
+    line-height: 2.1rem;
+  }
+
+  .expand-list-item.active .expand-target-short {
+    max-height: 800px;
+  }
+
+  footer.footer-content {
+    padding-top: 6rem;
+  }
+}
+
+/* Small-medium phones (max-width: 479px) and (min-width: 319px) */
+@media only screen and (max-width: 479px) and (min-width: 319px) {
+  .bg-container {
+    position: fixed;
+    left: 25%;
+  }
+}
+
+/* Smaller phones (max-width: 450px) */
+@media screen and (max-width: 450px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .bg-container {
+    position: fixed;
+    left: 22%;
+  }
+
+  .bg-image {
+    transform: scale(1.4);
+  }
+
+  h1.body-section,
+  h1.footer-section {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .expand-list-item.active .expand-target-short {
+    max-height: 900px;
+  }
+}
+
+/* Small phones (max-width: 389px) */
+@media only screen and (max-width: 389px) {
+  :root {
+    font-size: 13px;
+  }
+
+  .hamburger {
+    padding: 5px;
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+
+  .hamburger-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
   .menu-sidebar {
     width: 12rem;
     right: -12rem;
   }
-  
+
   .sidebar-header {
     padding: 1rem;
   }
-  
+
   .sidebar-links {
     padding: 1rem;
-    gap: 2rem;
-  }
-
-  .sidebar-link {
-    font-size: 1rem;
+    gap: 1.5rem;
   }
 
   .bg-container {
-    height: 100vh;
-    z-index: 0;
+    position: fixed;
+    left: 18%;
   }
 
   .bg-image {
-    width: 120%;
-    height: auto;
-    min-width: 100%;
-    left: 0;
-
-    transform: scale(1.3);
-  }
-
-  img.header-img {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-
-  a#theme-btn {
-    height: 30px;
-    width: 30px;
-  }
-
-  #theme-btn svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  a.nav-link {
-    font-size: 0.75rem;
-    padding: 0 0.25rem;
+    transform: scale(1.5);
   }
 
   a.button {
@@ -1535,73 +1623,8 @@ img.footer-img {
     transform: scale(1.15);
   }
 
-  nav.sticky-nav {
-    left: 0.75rem;
-    padding: 0.3rem;
-  }
-
-  h1.body-section,
-  h1.footer-section {
-    font-size: 1.8rem;
-    line-height: 2rem;
-    padding-bottom: 0.6rem;
-  }
-
-  h2.body-section {
-    font-size: 1.3rem;
-  }
-
-  h3.body-section {
-    font-size: 1rem;
-  }
-
-  p.body-section,
-  p.footer-section {
-    font-size: 0.9rem;
-  }
-
-  a.social-button {
-    width: 4.5rem;
-    padding: 1rem 1rem 1rem;
-  }
-
-  div.social-button--label {
-    font-size: 0.65rem;
-    margin-top: 1rem;
-  }
-
-  footer.footer-content {
-    flex-direction: column;
-    padding-top: 8rem;
-  }
-
-  .footer-section {
-    max-width: 80%;
-  }
-
-  ul.contact-info {
-    max-width: 80%;
-  }
-
-  .slider {
-    max-width: 95%;
-  }
-
-  .slider button {
-    font-size: 1.5rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-
-  img.footer-img {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-
-  .modal-close {
-    top: -35px;
-    right: -5px;
-    font-size: 30px;
+  .expand-list-item.active .expand-target-short {
+    max-height: 1000px;
   }
 
   .modal-close svg {
@@ -1609,35 +1632,17 @@ img.footer-img {
     height: 30px;
   }
 
-  .expand-list {
-    max-width: 100%;
-  }
-
-  .expand-trigger {
-    font-size: 0.8rem;
-    padding: 0.6rem;
-  }
-
   .expand-trigger::after {
     font-size: 1.1rem;
     margin-left: 0.3rem;
   }
+}
 
-  .expand-target-short {
-    padding: 0 1rem;
-  }
-
-  .expand-list-item.active .expand-target-short {
-    padding: 0 1rem 0.6rem 1rem;
-    max-height: 1000px;
-  }
-
-  .anchor-label h3.body-section {
-    font-size: 0.9rem;
-  }
-
-  .expand-list-item {
-    margin-bottom: 0.8rem;
-    border-width: 0.5px;
+/* Very small phones (max-width: 479px) and (min-width: 220px) */
+@media only screen and (max-width: 479px) and (min-width: 220px) {
+  .bg-container {
+    position: fixed;
+    top: 0;
+    height: 100vh;
   }
 }
