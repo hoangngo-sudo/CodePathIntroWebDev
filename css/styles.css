@@ -1031,7 +1031,6 @@ img.footer-img {
 ============================ */
 
 .container {
-  max-width: 1536px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -1086,7 +1085,7 @@ img.footer-img {
 
   .bg-container {
   position: absolute;
-  left: 20%;
+  left: 40%;
   top: 5%;
   }
 
@@ -1206,7 +1205,7 @@ img.footer-img {
 
   .bg-container {
   position: absolute;
-  left: 30%;
+  left: 40%;
   top: 5%;
   }
 
