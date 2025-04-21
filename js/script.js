@@ -39,92 +39,226 @@ document.addEventListener("DOMContentLoaded", theme);
 function form() {
   const form = document.querySelector(".form");
   const submitBtn = document.querySelector(".btn");
+  const modal = document.querySelector(".modal");
+  const modalClose = document.querySelector(".modal-close");
+  const modalMessage = document.querySelector(".modal-message");
+  let modalTimeout;
 
   // Create a container for displaying registrations
   const registrationList = document.createElement("div");
   registrationList.className = "registration-list";
-  registrationList.innerHTML = "<h3>Confirmed Registrations</h3>";
 
   // Add the registration list to the page
   if (form) {
     form.appendChild(registrationList);
   }
 
-  // Validation function
-  // Validation function
+  // Function to show modal with customized message
+  const showModal = (name) => {
+    if (modal) {
+      // Set personalized message
+      if (modalMessage) {
+        modalMessage.textContent = `Thank you, ${name}! Your registration has been received.`;
+      }
+
+      // Show the modal
+      modal.classList.add("active");
+
+      // Set timeout to automatically close modal after 10 seconds
+      modalTimeout = setTimeout(() => {
+        closeModal();
+      }, 100000);
+    }
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    if (modal) {
+      const modalContainer = modal.querySelector(".modal-container");
+      if (modalContainer) {
+        modalContainer.classList.remove("active");
+      }
+
+      // Delay removing the modal's active class to allow for container animation
+      setTimeout(() => {
+        modal.classList.remove("active");
+      }, 300);
+
+      // Clear any existing timeout
+      if (modalTimeout) {
+        clearTimeout(modalTimeout);
+      }
+    }
+  };
+
+  // Add event listener to the modal close button
+  if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+  }
+
+  // Function to reset error styling
+  const resetErrorStyling = (type) => {
+    if (type === "payment") {
+      const willPayLabel = document.querySelector('label[for="will-pay"]');
+      const alreadyPaidLabel = document.querySelector(
+        'label[for="already-paid"]'
+      );
+      const paymentElements = Array.from(
+        document.querySelectorAll(".question-div")
+      ).find((element) => element.textContent.includes("Payment"));
+
+      // Reset the label colors
+      if (willPayLabel) {
+        willPayLabel.style.color = "";
+      }
+      if (alreadyPaidLabel) {
+        alreadyPaidLabel.style.color = "";
+      }
+    } else if (type === "acknowledge") {
+      const acknowledgeLabel = document.querySelector(
+        'label[for="acknowledge"]'
+      );
+
+      // Reset the label color
+      if (acknowledgeLabel) {
+        acknowledgeLabel.style.color = "";
+      }
+    } else if (type === "inputs") {
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const phoneInput = document.getElementById("phone");
+
+      const inputs = [nameInput, emailInput, phoneInput];
+      for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
+        if (input) {
+          const existingError =
+            input.parentElement.querySelector(".error-message");
+          if (existingError) {
+            existingError.remove();
+          }
+        }
+      }
+    }
+  };
+
+  // Add event listeners to payment radio buttons
+  const willPayRadio = document.getElementById("will-pay");
+  const alreadyPaidRadio = document.getElementById("already-paid");
+
+  if (willPayRadio) {
+    willPayRadio.addEventListener("change", () => resetErrorStyling("payment"));
+  }
+
+  if (alreadyPaidRadio) {
+    alreadyPaidRadio.addEventListener("change", () =>
+      resetErrorStyling("payment")
+    );
+  }
+
+  // Add event listener to acknowledgement checkbox
+  const acknowledgeCheckbox = document.getElementById("acknowledge");
+  if (acknowledgeCheckbox) {
+    acknowledgeCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        resetErrorStyling("acknowledge");
+      }
+    });
+  }
+
+  // Form validation
   const validateForm = () => {
     let containsErrors = false;
 
-    // Get the input fields we want to validate
+    // Get the form inputs
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const phoneInput = document.getElementById("phone");
     const acknowledgeCheckbox = document.getElementById("acknowledge");
+    const willPayRadio = document.getElementById("will-pay");
+    const alreadyPaidRadio = document.getElementById("already-paid");
+    const payment = document.querySelector(".question-div");
+    const paymentElements = Array.from(
+      document.querySelectorAll(".question-div")
+    ).find((element) => element.textContent.includes("Payment"));
+
+    // Create a person object to store the values
+    let person = {
+      name: "",
+      email: "",
+      phone: "",
+      acknowledged: false,
+      paymentSelected: false,
+    };
+
+    if (nameInput) {
+      person.name = nameInput.value;
+    }
+
+    if (emailInput) {
+      person.email = emailInput.value;
+    }
+
+    if (phoneInput) {
+      person.phone = phoneInput.value;
+    }
+
+    if (acknowledgeCheckbox) {
+      person.acknowledged = acknowledgeCheckbox.checked;
+    }
+
+    if (willPayRadio && willPayRadio.checked) {
+      person.paymentSelected = true;
+    }
+
+    if (alreadyPaidRadio && alreadyPaidRadio.checked) {
+      person.paymentSelected = true;
+    }
 
     // Reset previous error styling
-    const inputs = [nameInput, emailInput, phoneInput];
-    inputs.forEach((input) => {
-      if (input) {
-        input.style.borderBottomColor = "#DCD7D7";
-        // Remove any existing error messages
-        const existingError =
-          input.parentElement.querySelector(".error-message");
-        if (existingError) {
-          existingError.remove();
-        }
-      }
-    });
+    resetErrorStyling("inputs");
+    resetErrorStyling("acknowledge");
+    resetErrorStyling("payment");
 
     // Validate name (required and min length 2)
-    if (!nameInput || !nameInput.value || nameInput.value.trim().length < 2) {
+    if (!person.name || person.name.trim().length < 2) {
       if (nameInput) {
-        nameInput.style.borderBottomColor = "red";
-        // Add error message for name
         const errorMsg = document.createElement("span");
         errorMsg.className = "error-message";
-        errorMsg.textContent = "Name must be at least 2 characters";
+        errorMsg.textContent = "Name must be at least 2 characters.";
         nameInput.parentElement.appendChild(errorMsg);
       }
       containsErrors = true;
     }
 
     // Validate email (required and valid format)
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (
-      !emailInput ||
-      !emailInput.value ||
-      !emailRegex.test(emailInput.value)
-    ) {
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(com|edu)$/;
+    if (!person.email || !emailRegex.test(person.email)) {
       if (emailInput) {
-        emailInput.style.borderBottomColor = "red";
         // Add error message for email
         const errorMsg = document.createElement("span");
         errorMsg.className = "error-message";
-        errorMsg.textContent = "Please enter a valid email address";
+        errorMsg.textContent =
+          "Please use a valid email address with .com or .edu after @.";
         emailInput.parentElement.appendChild(errorMsg);
       }
       containsErrors = true;
     }
 
     // Validate phone (required and minimum length)
-    if (
-      !phoneInput ||
-      !phoneInput.value ||
-      phoneInput.value.trim().length < 7
-    ) {
+    if (!person.phone || person.phone.trim().length < 10) {
       if (phoneInput) {
-        phoneInput.style.borderBottomColor = "red";
         // Add error message for phone
         const errorMsg = document.createElement("span");
         errorMsg.className = "error-message";
-        errorMsg.textContent = "Please enter a valid phone number";
+        errorMsg.textContent = "Please enter a valid phone number.";
         phoneInput.parentElement.appendChild(errorMsg);
       }
       containsErrors = true;
     }
 
     // Validate acknowledge checkbox
-    if (!acknowledgeCheckbox || !acknowledgeCheckbox.checked) {
+    if (!person.acknowledged) {
       containsErrors = true;
       // Highlight the checkbox label
       const acknowledgeLabel = document.querySelector(
@@ -135,17 +269,53 @@ function form() {
       }
     }
 
-    return !containsErrors;
+    if (!person.paymentSelected) {
+      containsErrors = true;
+      const willPayLabel = document.querySelector('label[for="will-pay"]');
+      const alreadyPaidLabel = document.querySelector(
+        'label[for="already-paid"]'
+      );
+
+      if (willPayLabel) {
+        willPayLabel.style.color = "red";
+      }
+
+      if (alreadyPaidLabel) {
+        alreadyPaidLabel.style.color = "red";
+      }
+
+      // Add error message for payment
+      if (paymentElements) {
+        const errorMsg = document.createElement("span");
+        errorMsg.className = "error-message";
+        paymentElements.appendChild(errorMsg);
+      }
+    }
+
+    if (containsErrors) {
+      return false;
+    } else {
+      return true;
+    }
   };
-  // Function to add participant to the list
-  const addParticipant = () => {
+
+  // Function to add register to the list
+  const addRegister = () => {
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
 
-    if (!nameInput || !emailInput) return;
+    if (!nameInput || !emailInput || !phoneInput) return;
+
+    // Create a register object
+    let register = {
+      name: nameInput.value,
+      email: emailInput.value,
+      phone: phoneInput.value,
+      services: [],
+    };
 
     // Get selected services
-    const selectedServices = [];
     const checkboxes = document.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
@@ -153,7 +323,7 @@ function form() {
       if (checkbox.id !== "acknowledge") {
         const label = document.querySelector(`label[for="${checkbox.id}"]`);
         if (label) {
-          selectedServices.push(label.textContent);
+          register.services.push(label.textContent);
         }
       }
     });
@@ -161,23 +331,30 @@ function form() {
     // Get other service if provided
     const otherService = document.getElementById("other-service");
     if (otherService && otherService.value.trim()) {
-      selectedServices.push(otherService.value);
+      register.services.push(otherService.value);
     }
 
     // Create a new entry
     const entry = document.createElement("div");
     entry.className = "registration-entry";
     entry.innerHTML = `
-      <p><strong>${nameInput.value}</strong> (${emailInput.value})</p>
-      ${
-        selectedServices.length > 0
-          ? `<p class="services">Services: ${selectedServices.join(", ")}</p>`
-          : ""
-      }
+      <div class="entry-header">
+        <div class="tick">✅</div>
+        <p><strong>${register.name}</strong> has joined the team!<br>
+        Email: ${register.email}<br>
+        Phone: ${register.phone}<br>
+        ${
+          register.services.length > 0
+            ? `<i>Services: ${register.services.join(", ")}</i>`
+            : ""
+        }</p>
+      </div>
     `;
 
-    // Add to list
     registrationList.appendChild(entry);
+
+    // Show the modal with the person's name
+    showModal(register.name);
   };
 
   // Clear form fields
@@ -203,7 +380,7 @@ function form() {
       event.preventDefault(); // Prevent form submission
 
       if (validateForm()) {
-        addParticipant();
+        addRegister();
         clearForm();
       }
     });
@@ -213,6 +390,7 @@ function form() {
 document.addEventListener("DOMContentLoaded", form);
 
 // --------------------------------------------------//
+
 function handleSidebar() {
   // Get the elements we need to work with
   const hamburger = document.querySelector(".hamburger");
@@ -258,3 +436,5 @@ function handleSidebar() {
 }
 
 document.addEventListener("DOMContentLoaded", handleSidebar);
+
+// --------------------------------------------------//
