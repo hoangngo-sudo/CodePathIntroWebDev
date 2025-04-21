@@ -19,17 +19,17 @@ body {
 
 .required {
   font-size: 0.8rem;
-  color: red;
+  color: #ff0000;
 }
 
 .title {
   height: auto;
   width: 40rem;
   background-color: #FDFEFE;
-  margin: 15px auto;
+  margin: 0.9rem auto;
   border-radius: 8px;
-  border-top: 8px solid #6703c4;
-  padding: 25px;
+  border-top: 5px solid #6703c4;
+  padding: 1.6rem;
 }
 
 .title h1 {
@@ -52,10 +52,10 @@ body {
 .email-field,
 .phone-field,
 .form-field {
-  margin-bottom: 15px;
+  margin-bottom: 0.9rem;
   padding: 1.5rem;
   background-color: #FDFEFE;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .name label,
@@ -65,7 +65,7 @@ body {
 }
 
 .question-div {
-  margin-bottom: 15px;
+  margin-bottom: 0.9rem;
 }
 
 .input-field input {
@@ -74,7 +74,7 @@ body {
   border: 0;
   border-bottom: 1px solid #DCD7D7;
   font-size: 1rem;
-  padding: 10px 5px;
+  padding: 0.6rem 0.3rem;
   background-color: transparent;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -106,51 +106,67 @@ input::placeholder {
 .radio-field {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
 }
 
 .checkbox-div input[type="checkbox"],
 .radio-field input[type="radio"] {
-  margin-right: 10px;
+  margin-right: 0.6rem;
   accent-color: #6703c4;
 }
 
 .btn {
   position: relative;
   display: inline-block;
-  margin: 15px 0;
+  margin: 0.9rem 0;
   background-color: #6703c4;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 0.6rem 1.25rem;
   cursor: pointer;
 }
 
 .registration-list {
-  background-color: #FDFEFE;
+  background-color: transparent;
   border-radius: 8px;
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 1.25rem;
 }
 
 .registration-list h3 {
   color: #6703c4;
   font-size: 1.2rem;
-  margin-bottom: 15px;
+  margin-bottom: 0.9rem;
   font-weight: 500;
 }
 
 .registration-entry {
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 0.9rem;
+  margin-bottom: 0.9rem;
   margin-top: 0;
   border-left: 3px solid #6703c4;
-  background-color: #f8f4fd;
+  background-color: rgba(248, 244, 253, 0.7);
+  border-radius: 4px;
+  transition: transform 0.3s ease;
 }
 
 .registration-list .registration-entry:last-child {
   margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  align-items: left;
+  margin-bottom: 5px;
+}
+
+.tick {
+  margin-right: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .registration-entry p {
@@ -172,33 +188,182 @@ input::placeholder {
   display: block;
 }
 
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.527);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-container {
+  background-color: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 1.6rem;
+  border-radius: 8px;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.modal.active .modal-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6703c4;
+}
+
+.modal-header {
+  margin-bottom: 0.9rem;
+}
+
+.modal-header h2 {
+  color: #6703c4;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.modal-body p {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.modal-body p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-image-container {
+  width: 7.5rem;
+  height: 7.5rem;
+  margin: 0 auto 15px;
+  overflow: hidden;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 /* ============================
     MEDIA QUERIES
 ============================ */
 
 /* Large screens (max-width: 1024px) */
 @media screen and (max-width: 64rem) {
-
-  /* 64rem = 1024px */
   :root {
-    /* Root font size changes for this breakpoint */
     font-size: 15px;
   }
 
   .form {
-    max-width: 85%;
+    max-width: 90%;
   }
 
   .title {
     width: 100%;
-    padding: 20px;
+    padding: 1.33rem;
   }
 
   .title h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 3rem;
   }
 
+  .title p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  label {
+    font-size: 1rem;
+  }
+  
+  .question-div {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 64rem) and (min-width: 48rem) {
+  :root {
+    font-size: 14px;
+  }
+
+  .form {
+    max-width: 60%;
+  }
+
+  .title h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .name-field,
+  .email-field,
+  .phone-field,
+  .form-field {
+    padding: 1.2rem;
+  }
+  
+  .question-div {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .btn {
+    padding: 8px 16px;
+  }
 }
 
 /* Medium screens (max-width: 768px) */
@@ -213,25 +378,51 @@ input::placeholder {
   }
 
   .title h1 {
-    font-size: 2.2rem;
-    line-height: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-bottom: 1rem;
   }
 
   .title p {
-    line-height: 1.9rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .name-field,
   .email-field,
   .phone-field,
   .form-field {
-    /* 1.2rem * 14px = 16.8px */
     padding: 1.2rem;
+  }
+  
+  .question-div {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .btn {
     padding: 8px 16px;
+  }
+
+  .modal-container {
+    width: 95%;
+    max-width: 450px;
+    padding: 1.2rem;
+  }
+
+  .modal-image-container {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
   }
 }
 
@@ -246,9 +437,14 @@ input::placeholder {
   }
 
   .title h1 {
-    /* font-size: 3rem;
-    line-height: 3rem; */
-    margin-bottom: 1.2rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title p {
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .title {
@@ -262,9 +458,46 @@ input::placeholder {
   .form-field {
     padding: 1rem;
   }
+  
+  .question-div {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
 
   .input-field input {
     padding: 8px 5px;
+    font-size: 1.2rem;
+  }
+
+  .modal-container {
+    width: 90%;
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .modal-image-container {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-close {
+    top: 0.4rem;
+    right: 0.4rem;
+  }
+
+  .modal-close svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -280,14 +513,14 @@ input::placeholder {
   }
 
   .title h1 {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 3rem;
+    line-height: 3.5rem;
     margin-bottom: 1rem;
   }
 
   .title p {
-    font-size: 1rem;
-    line-height: 1.8rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .title {
@@ -299,13 +532,19 @@ input::placeholder {
   .email-field,
   .phone-field,
   .form-field {
-    /* 0.8rem * 12px = 9.6px */
     padding: 0.8rem;
     margin-bottom: 10px;
   }
 
   .question-div {
     margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
 
   .checkbox-div,
@@ -320,5 +559,43 @@ input::placeholder {
 
   .input-field input {
     max-width: 100%;
+    font-size: 1.2rem;
+  }
+}
+
+/* Extra small screens (max-width: 320px) */
+@media screen and (max-width: 320px) {
+  .modal-container {
+    padding: 0.8rem;
+  }
+
+  .modal-image-container {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 10px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-body p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  label {
+    font-size: 0.8rem;
+    line-height: 2rem;
+  }
+  
+  .question-div {
+    font-size: 1rem;
+    line-height: 2.2rem;
+  }
+  
+  .input-field input {
+    font-size: 1rem;
   }
 }
