@@ -364,21 +364,26 @@ a.nav-link:hover {
   padding: 2rem;
   gap: 1.5rem;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .sidebar-link {
   color: var(--secondary-color);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-align: center;
   justify-content: center;
   transition: 0.2s ease;
   position: relative;
   z-index: var(--z-buttons);
+  width: 100%;
 }
 
-/* .sidebar-links a.theme-btn {
-} */
+.sidebar-links .theme-btn {
+  height: 60px;
+  width: 60px;
+}
 
 .sidebar-link:hover {
   color: var(--tertiary-color);
@@ -1415,6 +1420,10 @@ a.madewithlove-bar--link {
     max-width: 80%;
   }
 
+  .sidebar-link {
+    font-size: 1.3rem;
+  }
+
   .madewithlove-bar {
     padding: 0.5rem;
     justify-content: center;
@@ -1688,19 +1697,23 @@ a.madewithlove-bar--link {
     padding: 1rem;
   }
 
+  .sidebar-link {
+    font-size: 1.2rem;
+  }
+
   .sidebar-links {
     padding: 1rem;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
 
   .bg-container {
     position: fixed;
-    top: -5%;
-    left: 20%;
+    top: -10%;
+    left: 25%;
   }
 
   .bg-image {
-    transform: scale(0.35);
+    transform: scale(0.4);
   }
 
   a.button {
@@ -1741,12 +1754,12 @@ a.madewithlove-bar--link {
 @media only screen and (max-width: 350px) {
   .bg-container {
     position: fixed;
-    top: -5%;
-    left: 19%;
+    top: -10%;
+    left: 25%;
   }
 
   .bg-image {
-    transform: scale(0.35);
+    transform: scale(0.4);
   }
 
   footer.footer-content {
