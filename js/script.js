@@ -67,7 +67,7 @@ function form() {
       // Set timeout to automatically close modal after 10 seconds
       modalTimeout = setTimeout(() => {
         closeModal();
-      }, 100000);
+      }, 10000);
     }
   };
 
