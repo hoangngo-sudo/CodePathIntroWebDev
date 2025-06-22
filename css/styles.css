@@ -326,8 +326,8 @@ a.nav-link:hover {
   background-color: var(--nav-bg);
   transform: translateX(0);
   will-change: transform;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: url(#frosted);
+  -webkit-backdrop-filter: blur(10px);
   z-index: var(--z-sidebar);
   transition: right 0.3s ease;
   display: none;
@@ -894,7 +894,7 @@ ul.expand-list {
   position: relative;
   margin-bottom: 1rem;
   list-style-type: none;
-  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.6), 0 16px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.6);
   border-radius: 0.2rem;
 }
 
@@ -914,7 +914,6 @@ ul.expand-list {
   font-weight: 600;
   font-size: 1.1rem;
   transition: background-color 0.3s ease;
-  /* background-color: rgba(255, 255, 255, 0.08); */
   box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.6);
   backdrop-filter: url(#frosted);
   -webkit-backdrop-filter: blur(10px);
