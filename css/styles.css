@@ -439,8 +439,10 @@ img.header-img {
 a.button {
   color: var(--primary-color);
   text-decoration: none;
-  border: var(--secondary-color) solid 1px;
-  /* background-color: var(--tertiary-color); */
+  border: none; /* Remove the solid border */
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.6);
+  backdrop-filter: url(#frosted);
+  -webkit-backdrop-filter: blur(10px);
   padding: 1rem 2rem;
   border-radius: 3rem;
   margin: 2rem 0;
@@ -449,6 +451,12 @@ a.button {
   text-align: center;
   height: auto;
   width: auto;
+  position: relative;
+}
+
+.dark-mode a.button {
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.6);
 }
 
 a.button::after {
@@ -643,7 +651,12 @@ div.social-button--label {
   height: 50px;
   position: relative;
   border-radius: 34px;
-  border: 1px solid var(--secondary-color);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode .scroll-mouse-container .scroll-mouse-inner {
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.6);
 }
 
 .scroll-mouse-container .scroll-mouse-inner .scroll-mouse-wheel {
@@ -1789,13 +1802,13 @@ a.madewithlove-bar--link {
 
   .hamburger {
     padding: 5px;
-    top: 0.6rem;
-    left: 0.6rem;
+    top: 1.5rem;
+    left: 1.5rem;
   }
 
   .hamburger-icon {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .menu-sidebar {
@@ -1846,18 +1859,18 @@ a.madewithlove-bar--link {
 /* Small phones (max-width: 389px) */
 @media only screen and (max-width: 389px) {
   :root {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .hamburger {
     padding: 5px;
-    top: 0.6rem;
-    left: 0.6rem;
+    top: 1.5rem;
+    left: 1.5rem;
   }
 
   .hamburger-icon {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .menu-sidebar {
