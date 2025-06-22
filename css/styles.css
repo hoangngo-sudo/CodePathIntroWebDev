@@ -1159,9 +1159,9 @@ filter:invert(1);
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: right;
-  align-items: flex-end;
-  padding: 0.5rem 5.5rem 0.5rem;
+  justify-content: center; /* Change to center alignment */
+  align-items: center;
+  padding: 0.5rem 1rem;
   background-color: var(--footer-copyright);
   z-index: 2;
 }
@@ -1175,6 +1175,9 @@ filter:invert(1);
 .madewithlove-bar--text {
   color: #fff;
   text-decoration: none;
+  width: 100%;
+  max-width: auto;
+  text-align: center;
 }
 
 .madewithlove-bar--text a:hover {
@@ -1512,7 +1515,7 @@ a.madewithlove-bar--link {
 /* Small tablets (max-width: 700px) */
 @media screen and (max-width: 700px) {
   :root {
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .hamburger {
@@ -1602,7 +1605,7 @@ a.madewithlove-bar--link {
 /* Larger phones (max-width: 568px) */
 @media screen and (max-width: 568px) {
   :root {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .hamburger {
@@ -1649,6 +1652,10 @@ a.madewithlove-bar--link {
 
 /* Medium-small tablets (max-width: 568px) and (min-width: 480px) */
 @media only screen and (max-width: 568px) and (min-width: 480px) {
+  :root {
+    font-size: 20px;
+  }
+
   .bg-container {
     position: fixed;
     top: -4%;
@@ -1679,6 +1686,10 @@ a.madewithlove-bar--link {
 }
 
 @media screen and (max-width: 480px) {
+  :root {
+    font-size: 20px;
+  }
+
   .bg-container {
     position: fixed;
     top: -4%;
@@ -1710,8 +1721,9 @@ a.madewithlove-bar--link {
 /* Medium phones (max-width: 479px) */
 @media screen and (max-width: 479px) {
   :root {
-    font-size: 19px;
+    font-size: 20px;
   }
+
   .hamburger {
     display: block;
     padding: 10px;
@@ -1772,7 +1784,7 @@ a.madewithlove-bar--link {
 /* Smaller phones (max-width: 450px) */
 @media screen and (max-width: 450px) {
   :root {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .hamburger {
@@ -1834,7 +1846,7 @@ a.madewithlove-bar--link {
 /* Small phones (max-width: 389px) */
 @media only screen and (max-width: 389px) {
   :root {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .hamburger {
@@ -1912,6 +1924,10 @@ a.madewithlove-bar--link {
 
 /* Very small phones (max-width: 350px) */
 @media only screen and (max-width: 350px) {
+  :root {
+    font-size: 14px;
+  }
+
   .bg-container {
     position: fixed;
     top: -10%;
