@@ -6,24 +6,24 @@
     <title>Deeper Root In Christ</title>
     <link rel=" shortcut icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.min.css" />
 </head>
 
 <body class="dark-mode">
   <svg width="0" height="0" style="position:absolute">
-  <filter id="frosted">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="frosted" />
-    <feComposite in="SourceGraphic" in2="frosted" operator="atop"/>
-    <feDisplacementMap id="disp" in="frosted" in2="blur" scale="1" xChannelSelector="R" yChannelSelector="G">
-      <animate attributeName="scale" to="3" dur="0.2s" begin="nav-glass.mouseover" fill="freeze"/>
-      <animate attributeName="scale" to="1" dur="0.2s" begin="nav-glass.mouseout" fill="freeze"/>
-      <animate attributeName="scale" to="3" dur="0.2s" begin="expand-trigger.mouseover" fill="freeze"/>
-      <animate attributeName="scale" to="1" dur="0.2s" begin="expand-trigger.mouseout" fill="freeze"/>
-      <animate attributeName="scale" to="3" dur="0.2s" begin="expand-target-short.mouseover" fill="freeze"/>
-      <animate attributeName="scale" to="1" dur="0.2s" begin="expand-target-short.mouseout" fill="freeze"/>
-    </feDisplacementMap>
-  </filter>
+    <filter id="frosted">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="frosted" />
+      <feComposite in="SourceGraphic" in2="frosted" operator="atop"/>
+      <feDisplacementMap id="disp" in="frosted" in2="blur" scale="1" xChannelSelector="R" yChannelSelector="G">
+        <animate attributeName="scale" to="3" dur="0.2s" begin="nav-glass.mouseover" fill="freeze"/>
+        <animate attributeName="scale" to="1" dur="0.2s" begin="nav-glass.mouseout" fill="freeze"/>
+        <animate attributeName="scale" to="3" dur="0.2s" begin="expand-trigger.mouseover" fill="freeze"/>
+        <animate attributeName="scale" to="1" dur="0.2s" begin="expand-trigger.mouseout" fill="freeze"/>
+        <animate attributeName="scale" to="3" dur="0.2s" begin="expand-target-short.mouseover" fill="freeze"/>
+        <animate attributeName="scale" to="1" dur="0.2s" begin="expand-target-short.mouseout" fill="freeze"/>
+      </feDisplacementMap>
+    </filter>
   </svg>
   <div class="nav-container">
 
@@ -362,11 +362,11 @@
     </div>
   </div>
 
-  <script src="js/script.js"></script>
-  <script src="js/slider.js"></script>
-  <script src="js/imagePreloading.js"></script>
-  <script src="js/modal.js"></script>
-  <script src="js/expandable.js"></script>
+  <script src="js/script.min.js"></script>
+  <script src="js/slider.min.js"></script>
+  <script src="js/imagePreloading.min.js"></script>
+  <script src="js/modal.min.js"></script>
+  <script src="js/expandable.min.js"></script>
 </body>
 
 <!-- 
