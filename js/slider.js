@@ -1,33 +1,60 @@
-// Initialize the slider
-const slides = document.querySelector(".slides");
-const slide = document.querySelectorAll(".slide");
-const prevButton = document.querySelector(".prev-btn");
-const nextButton = document.querySelector(".next-btn");
-
 function Slider() {
-  // Set up initial position
-  if (slides && slide.length > 0) {
-    // Make first slide visible
-    slides.scrollLeft = 0;
+  const slides = document.querySelector(".slides");
+  const slideElements = document.querySelectorAll(".slide");
+  const prevButton = document.querySelector(".prev-btn");
+  const nextButton = document.querySelector(".next-btn");
 
-    // Set up button click handlers
-    if (prevButton) {
-      prevButton.addEventListener("click", () => {
-        const slideWidth = slide[0].clientWidth;
-        slides.scrollBy({
-          left: -slideWidth,
-        });
-      });
+  if (!slides || slideElements.length === 0) return;
+  
+  let currentIndex = 0;
+  const maxIndex = slideElements.length - 1;
+  
+  // Update button states based on current position
+  function updateButtonStates() {
+    // Disable prev button at beginning
+    if (currentIndex === 0) {
+      prevButton.classList.add("disabled");
+    } else {
+      prevButton.classList.remove("disabled");
     }
-
-    if (nextButton) {
-      nextButton.addEventListener("click", () => {
-        const slideWidth = slide[0].clientWidth;
-        slides.scrollBy({
-          left: slideWidth,
-        });
-      });
+    
+    // Disable next button at end
+    if (currentIndex === maxIndex) {
+      nextButton.classList.add("disabled");
+    } else {
+      nextButton.classList.remove("disabled");
     }
+  }
+  
+  // Initial button state
+  updateButtonStates();
+  
+  // Previous button click handler
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        slides.scrollTo({
+          left: currentIndex * slideElements[0].offsetWidth,
+          behavior: 'smooth'
+        });
+        updateButtonStates();
+      }
+    });
+  }
+  
+  // Next button click handler
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        slides.scrollTo({
+          left: currentIndex * slideElements[0].offsetWidth,
+          behavior: 'smooth'
+        });
+        updateButtonStates();
+      }
+    });
   }
 }
 
