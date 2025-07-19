@@ -268,7 +268,7 @@ nav.sticky-nav {
   backdrop-filter: url(#frosted);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 3rem;
-  padding: 0.7rem;
+  padding: 0.5rem;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
@@ -284,7 +284,7 @@ a.nav-link {
   font-weight: 600;
   font-size: 1.25rem;
   transition: color 0.2s ease;
-  padding: 0 0.6rem;
+  padding: 0 0.5rem;
 }
 
 a.nav-link:hover {
@@ -908,7 +908,7 @@ ul.expand-list {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: space-between;
   width: 100%;
   padding: 0.7rem 0.5rem 0.7rem 0.5rem;
   cursor: pointer;
@@ -931,7 +931,9 @@ ul.expand-list {
   content: '+++';
   font-size: 1.5rem;
   font-weight: 600; 
+  line-height: 1;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .expand-list-item.active .expand-trigger::after {
@@ -942,6 +944,9 @@ ul.expand-list {
 .anchor-label {
   flex: 1;
   padding: 0 0.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .anchor-background {
@@ -1242,6 +1247,15 @@ a.madewithlove-bar--link {
     max-height: 90vh;
     max-width: 85vw;
   }
+  
+  a.nav-link {
+    font-size: 1.2rem;
+    padding: 0 0.6rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.6rem;
+  }
 }
 
 /* Large desktops (max-width: 1522px) and (min-width: 1025px) */
@@ -1258,7 +1272,19 @@ a.madewithlove-bar--link {
   .bg-image {
     transform: scale(0.9);
   }
-
+  
+  section.body-section {
+    padding: 0 1.5rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.1rem;
+    padding: 0 0.55rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.55rem;
+  }
 }
 
 /* Medium-large desktops (max-width: 1300px) */
@@ -1274,6 +1300,19 @@ a.madewithlove-bar--link {
 
   .bg-image {
     transform: scale(0.8);
+  }
+  
+  h1.body-section {
+    line-height: 2.8rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.05rem;
+    padding: 0 0.5rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.5rem;
   }
 }
 
@@ -1291,12 +1330,26 @@ a.madewithlove-bar--link {
   .bg-image {
     transform: scale(0.7);
   }
+  
+  h1.body-section {
+    padding-bottom: 0.8rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.2rem;
+    padding: 0 0.45rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.45rem;
+    top: 0.8rem;
+  }
 }
 
 /* Small desktops and laptops (max-width: 1024px) */
 @media only screen and (max-width: 1024px) {
   :root {
-    font-size: 23px;
+    font-size: 20px;
   }
 
   .bg-container {
@@ -1324,8 +1377,13 @@ a.madewithlove-bar--link {
   }
 
   a.nav-link {
-    font-size: 0.9rem;
-    padding: 0 0.4rem;
+    font-size: 1.2rem;
+    padding: 0 0.38rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.38rem;
+    top: 0.8rem;
   }
 
   .scroll-mouse-container {
@@ -1336,6 +1394,7 @@ a.madewithlove-bar--link {
   h1.footer-section {
     font-size: 2.5rem;
     line-height: 2.7rem;
+    padding-bottom: 0.8rem;
   }
 
   h2.body-section {
@@ -1345,6 +1404,15 @@ a.madewithlove-bar--link {
   footer.footer-content {
     max-width: 90%;
     padding-top: 7rem;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    min-height: 70vh;
+    padding-bottom: 7rem;
+  }
+  
+  section.body-section {
+    padding: 0 1.54rem;
   }
 }
 
@@ -1358,6 +1426,20 @@ a.madewithlove-bar--link {
 
   .bg-image {
     transform: scale(0.6);
+  }
+  
+  section.body-section {
+    max-width: 34rem;
+    padding: 0 1.46rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.2rem;
+    padding: 0 0.37rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.37rem;
   }
 }
 
@@ -1395,12 +1477,37 @@ a.madewithlove-bar--link {
     align-items: center;
     padding-top: 7rem;
   }
+  
+  h1.body-section {
+    font-size: 2.4rem;
+    line-height: 2.6rem;
+  }
+  
+  h3.body-section {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+  }
+  
+  section.body-section {
+    max-width: 32rem;
+    padding: 0 1.46rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.2rem;
+    padding: 0 0.36rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.36rem;
+    top: 0.7rem;
+  }
 }
 
 /* Medium-large tablets (max-width: 985px) and (min-width: 768px) */
 @media only screen and (max-width: 985px) and (min-width: 768px) {
   :root {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .bg-container {
@@ -1412,8 +1519,25 @@ a.madewithlove-bar--link {
   .bg-image {
     transform: scale(0.5);
   }
-
-
+  
+  section.body-section {
+    max-width: 30rem;
+    padding: 0 1.38rem;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    padding-bottom: 6.5rem;
+  }
+  
+  a.nav-link {
+    font-size: 1.2rem;
+    padding: 0 0.35rem;
+  }
+  
+  nav.sticky-nav {
+    padding: 0.35rem;
+    top: 1rem;
+  }
 }
 
 /* Medium tablets (max-width: 767px) */
@@ -1421,6 +1545,7 @@ a.madewithlove-bar--link {
   :root {
     font-size: 22px;
   }
+  
   .hamburger {
     display: block;
     padding: 10px;
@@ -1451,7 +1576,9 @@ a.madewithlove-bar--link {
 
   .bg-image {
     transform: scale(0.5);
-  }  a.button {
+  }
+  
+  a.button {
     padding: 1rem 2rem;
     min-width: 180px;
     font-size: 1.2rem;
@@ -1491,6 +1618,21 @@ a.madewithlove-bar--link {
     padding-top: 9rem;
     max-width: 85%;
   }
+  
+  section.body-section {
+    max-width: 90%;
+    padding: 0 1.69rem;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    min-height: 65vh;
+    padding-bottom: 6rem;
+  }
+  
+  h3.body-section {
+    line-height: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Medium-small tablets (max-width: 767px) and (min-width: 700px) */
@@ -1521,6 +1663,10 @@ a.madewithlove-bar--link {
     display: block;
     width: 15rem;
     right: -15rem;
+  }
+  
+  section.body-section {
+    padding: 0 1.62rem;
   }
 }
 
@@ -1566,7 +1712,7 @@ a.madewithlove-bar--link {
 
   section.body-section,
   section.footer-section {
-    padding: 0 1rem;
+    padding: 0 1.54rem;
   }
 
   .slider {
@@ -1581,36 +1727,9 @@ a.madewithlove-bar--link {
   p.footer-section {
     max-width: 82%;
   }
-}
-
-/* Medium-small tablets (max-width: 700px) and (min-width: 569px) */
-@media only screen and (max-width: 700px) and (min-width: 569px) {
-  .bg-container {
-    position: fixed;
-    top: 1%;
-    left: 30%;
-  }
-
-  .bg-image {
-    transform: scale(0.5);
-  }
-
-  .hamburger {
-    display: block;
-    padding: 10px;
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  .hamburger-icon {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .menu-sidebar {
-    display: block;
-    width: 15rem;
-    right: -15rem;
+  
+  article.body-content.body-content--firstviewport {
+    padding-bottom: 5rem;
   }
 }
 
@@ -1646,7 +1765,9 @@ a.madewithlove-bar--link {
 
   .bg-image {
     transform: scale(0.5);
-  }  a.button {
+  }
+  
+  a.button {
     padding: 0.9rem 1.5rem;
     min-width: 140px;
     font-size: 1.2rem;
@@ -1660,9 +1781,28 @@ a.madewithlove-bar--link {
   p.footer-section {
     max-width: 85%;
   }
+  
+  h1.body-section {
+    font-size: 1.9rem;
+    line-height: 2.1rem;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    min-height: 60vh;
+    padding-bottom: 4.5rem;
+  }
+  
+  h3.body-section {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+  
+  p.body-section {
+    font-size: 0.9rem;
+  }
 }
 
-/* Medium-small tablets (max-width: 568px) and (min-width: 480px) */
+/* Medium-small phone (max-width: 568px) and (min-width: 480px) */
 @media only screen and (max-width: 568px) and (min-width: 480px) {
   :root {
     font-size: 20px;
@@ -1695,8 +1835,13 @@ a.madewithlove-bar--link {
     width: 15rem;
     right: -15rem;
   }
+  
+  section.body-section {
+    padding: 0 0.8rem;
+  }
 }
 
+/* medium phones (max-width: 480px) */
 @media screen and (max-width: 480px) {
   :root {
     font-size: 20px;
@@ -1711,6 +1856,7 @@ a.madewithlove-bar--link {
   .bg-image {
     transform: scale(0.4);
   }
+  
   .hamburger {
     display: block;
     padding: 10px;
@@ -1727,6 +1873,16 @@ a.madewithlove-bar--link {
     display: block;
     width: 15rem;
     right: -15rem;
+  }
+  
+  section.body-section {
+    padding: 0 0.7rem;
+  }
+  
+  h1.body-section {
+    font-size: 1.8rem;
+    line-height: 2rem;
+    padding-bottom: 0.7rem;
   }
 }
 
@@ -1772,6 +1928,7 @@ a.madewithlove-bar--link {
 
   .expand-list-item.active .expand-target-short {
     max-height: 800px;
+    padding: 0.8rem 1.2rem;
   }
 
   footer.footer-content {
@@ -1782,6 +1939,10 @@ a.madewithlove-bar--link {
   p.footer-section {
     max-width: 79%;
   }
+  
+  article.body-content.body-content--firstviewport {
+    padding-bottom: 4rem;
+  }
 }
 
 /* Small-medium phones (max-width: 479px) and (min-width: 319px) */
@@ -1790,6 +1951,20 @@ a.madewithlove-bar--link {
     position: fixed;
     top: -5%;
     left: 19%;
+  }
+  
+  section.body-section {
+    padding: 0 0.6rem;
+  }
+  
+  h3.body-section {
+    font-size: 0.95rem;
+    line-height: 1.3rem;
+  }
+  
+  p.body-section {
+    font-size: 0.85rem;
+    line-height: 1.3rem;
   }
 }
 
@@ -1852,6 +2027,16 @@ a.madewithlove-bar--link {
 
   p.footer-section {
     max-width: 79%;
+    font-size: 0.9rem;
+  }
+  
+  .expand-trigger {
+    padding: 0.7rem;
+    line-height: 1;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    padding-bottom: 3.5rem;
   }
 }
 
@@ -1898,7 +2083,7 @@ a.madewithlove-bar--link {
 
   .bg-image {
     transform: scale(0.4);
-  }  
+  }
   
   a.button {
     padding: 1.2rem 1rem;
@@ -1912,6 +2097,7 @@ a.madewithlove-bar--link {
 
   .expand-list-item.active .expand-target-short {
     max-height: 1000px;
+    padding: 0.8rem 0.95rem;
   }
 
   .modal-close svg {
@@ -1931,6 +2117,37 @@ a.madewithlove-bar--link {
 
   p.footer-section {
     max-width: 79%;
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+  }
+  
+  h1.body-section {
+    font-size: 1.7rem;
+    line-height: 1.9rem;
+  }
+  
+  h3.body-section {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+  }
+  
+  section.body-section {
+    padding: 0 0.5rem;
+  }
+  
+  article.body-content.body-content--firstviewport {
+    padding-bottom: 3rem;
+  }
+
+  .expand-trigger {
+    padding: 0.8rem 0.6rem;
+    text-align: left;
+    line-height: 1;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 1rem 1rem;
+    text-align: left;
   }
 }
 
@@ -1957,5 +2174,29 @@ a.madewithlove-bar--link {
 
   p.footer-section {
     max-width: 75%;
+    font-size: 0.9rem;
+  }
+  
+  h1.body-section {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+  
+  .expand-trigger {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .expand-trigger {
+    padding: 0.6rem 0.4rem;
+    line-height: 1;
+  }
+  
+  .expand-list-item.active .expand-target-short {
+    padding: 0.7rem 0.9rem;
+  }
+  
+  a.button {
+    padding: 1rem 0.8rem;
+    min-width: 120px;
   }
 }
